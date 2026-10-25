@@ -12,28 +12,34 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 
 ## Phase 1 — Classic baseline
 
-- [ ] Phase 1 — Classic baseline
-    - [ ] Milestone 1.1 — Playable classic game
-        - [ ] T-001 — Establish reproducible build and isolated browser harness
+- [x] Phase 1 — Classic baseline
+    - [x] Milestone 1.1 — Playable classic game
+        - [x] T-001 — Establish reproducible build and isolated browser harness
             Scope: package/lockfile, TypeScript/Vite/Vitest/Playwright configurations, CI, scripts/browser-env.mjs and run-browser-tests.mjs, DEVELOPMENT guidance and generated-path exclusions. Consume existing host/browser/shell policies; produce pinned commands and dedicated absolute browser path.
             Depends on: none; phase activation and preparation integration required.
             Evidence: clean dependency install, typecheck/unit smoke/build; trusted Chromium headless-shell and managed Firefox provisioning identity; repeated isolated page/context/render/teardown through the pinned runner with finite whole-process deadlines. Synthetic setup evidence is distinguished from application acceptance in T-004. If provisioning fails, retain diagnostics and do not claim T-001 complete.
-        - [ ] T-002 — Implement normal piece geometry and legal movement
+            Verified T-001: clean npm ci, typecheck, production build, development 2/2 and production 2/2 browser tests passed; each test used two isolated context/page cycles with native input and Canvas pixels/glyphs. Unit runner had zero product tests at this scaffold boundary. Official-image Chromium/FFmpeg recovery and process-local Firefox sandbox diagnosis are in DEVELOPMENT. No game acceptance or RED chronology is claimed.
+        - [x] T-002 — Implement normal piece geometry and legal movement
             Scope: src/domain/types.ts, geometry.ts, placement.ts, randomizer.ts and initial game.ts plus tests/unit/domain. Provide typed board/pose/command/event values, spawn, classic equal-probability source, collision, left/right/down movement and rotation without kicks; controller consumes these interfaces later.
             Depends on: T-001.
             Evidence: R-BASE coordinate table, all seven kinds, x/bottom bounds, above-top movement, occupied-cell rejection, rotation/O invariance, spawn failure and rejection without state mutation.
-        - [ ] T-003 — Implement gravity, locking, clears and game lifecycle
+            Verified T-002: observed RED (5 behavioral failures, 1 passing rejection fixture), then GREEN 6/6 domain tests and typecheck. Geometry, spawn/collision, immutable movement and classic no-kick rejection are implemented; UI remains scaffold-only.
+        - [x] T-003 — Implement gravity, locking, clears and game lifecycle
             Scope: domain game.ts, timing.ts and scoring.ts; command/time integration and deterministic fixtures. Consume T-002 state/geometry; provide active-time advancement, default full-interval locking, simultaneous clear/score/level, game-over event, pause and restart transitions.
             Depends on: T-002.
             Evidence: R-BASE scoring/level boundaries, compaction, above-top lock, 999/1000 ms contact, frame partitioning, pause/resume, score saturation and unique completion; document baseline rule choices.
-        - [ ] T-004 — Deliver playable classic interface and baseline package
+            Verified T-003: RED 7 lifecycle/timing failures with 6 earlier tests passing; GREEN 13/13 tests and typecheck. Exact contact boundary, grounded/airborne reset, simultaneous clears, pre-clear-level score, immutable boards, pause/lag, distinct frame partitions, saturation and single top-out completion covered.
+        - [x] T-004 — Deliver playable classic interface and baseline package
             Scope: src/app/controller.ts and view-model.ts, UI input/board/panels/styles, platform clock, bootstrap, e2e tests, USER-GUIDE and release-package script. Integrate T-002/T-003 into one frame/input lifecycle, centered board/game-info/help, Pause and Start/Restart. Exclude unimplemented feature controls; keep later panel space compatible with layout.
             Depends on: T-001, T-002, T-003.
             Evidence: native movement/rotation/soft drop, pause/blur/hidden-tab, game over/restart, readable score/level, Canvas pixels and centered board in both browsers through development and production server; repeated restart has one loop/listener set. Static package excludes secrets/caches. Milestone exit: review all 1.1 code, resolve blockers, demonstrate playable baseline, commit docs/dev/reports/phases/1/1.1.md and HANDOFF.
-    - [ ] Milestone 1.2 — Phase review
-        - [ ] T-005 — Review, test and report the classic baseline
+            Verified T-004/milestone 1.1: independent source review findings repaired/rechecked; 19 unit tests, typecheck/build, dev 10/10, production 8 passed with 2 explicit fixture-only skips, native raster/focus/rotation/DPR/navigation and static ZIP validation. Report: docs/dev/reports/phases/1/1.1.md.
+    - [x] Milestone 1.2 — Phase review
+        - [x] T-005 — Review, test and report the classic baseline
             Depends on: T-004 and milestone 1.1 completion/verified closure.
             Evidence: PLAN phase-1 exits, independent code review versus actual tests, both browser capability/acceptance, build/package inspection, user guide and no deferred later-feature claims. Prepare 0.1.0 and RELEASE-NOTES; commit docs/dev/reports/phases/1/PHASE-REPORT.md and HANDOFF. Integration/release follows through the coordinator.
+
+            Verified T-005: separate phase integration/source/package review passed; 19 unit tests, typecheck/build, production 8 passed/2 fixture-only skips, prior unchanged-source development 10/10. Prepared 0.1.0, exact notes body and stable ZIP/checksum; hosted integration/tag/release transitions remain pending.
 
 ## Phase 2 — Modern mechanics
 

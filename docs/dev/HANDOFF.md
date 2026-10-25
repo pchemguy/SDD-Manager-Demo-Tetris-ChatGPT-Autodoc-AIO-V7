@@ -1,23 +1,21 @@
 # Project handoff
 
-Checkpoint: DOCS-009 passing package QC; preparation integration pending.
+Checkpoint: phase 1 complete verified source merged into main; default publication and 0.1.0 release pending.
 
-Outcome: full document package reviewed and current control/evidence clarified. No game implementation exists. Historical schema-check/evidence-row repairs are retained in [package QC](DOCS-QC-REPORT.md).
+## Authority and sources
 
-## Workflow and authority
+- User requested QC and full implementation: T-001–T-027, all seven phases, each verified/integrated/released before the next. Standard reporting; no additional routine checkpoint approval required.
+- [SPEC](SPEC.md), [PLAN](PLAN.md), [layout](layout.md), [TASKS](TASKS.md) and [package QC](DOCS-QC-REPORT.md) govern execution. Root policies remain controlling.
+- Preparation DOCS-009 passed and all nine issues closed; explicit default merge 00b19ff57fb03f48601e0b80b056c4d5dc4a835c was published/read back; documentation milestone 1 closed/read back.
 
-- Main development; sdd-manage coordinates preparation integration then sdd-implement executes the full range T-001–T-027.
-- Authority: user “Do QC and full implement”, following PROJECT acceptance and autodoc-preapproved document preparation. This advances the earlier DOCS-008 stop and authorizes required integration and all seven implementation phases/releases.
-- Sources: [SPEC](SPEC.md), [PLAN](PLAN.md), [layout](layout.md), [TASKS](TASKS.md), [DOCS tasks](DOCS_TASKS.md), [preparation evidence](DOCS_PREPARATION.md), [package QC](DOCS-QC-REPORT.md).
-- Package/policies: SDD Manager 0.15.3, root AGENTS, browser and Windows shell policies. Tracking enabled; Standard reporting. No additional routine approval required within this range.
+## Branches and tracking
 
-## Branch and checkpoint
+- Working/integration return: actual default main. Completed child: phase/1-classic-baseline, branch-off 00b19ff57fb03f48601e0b80b056c4d5dc4a835c, verified source f0c7de846fcdaae51962a84cfb95818e96d022ce.
+- Phase label sdd-phase-1-Classic-baseline; delivery milestone 2 (1.1), review milestone 3 (1.2), task issues 10–14. All five issue bodies/associations verified. Projection timed out on final readback after creating T-005; read-only reconciliation verified it, then two brief-tail headings were corrected without duplicate objects.
+- Suspended parent: none. Integrate only after the complete phase exits/reviews; no partial phase merge.
 
-- Working: design-docs/main; creation parent/integration target: actual default main.
-- Branch-off: 9134edef230f2882427442a678602ae50d0b1118.
-- Reviewed preparation baseline: 334eccb6046854faee3ad53c0f63c7efd15a317d, plus this QC checkpoint.
-- Suspended parent: none; manual provenance scaffold already integrated.
+## Verified outcome and next action
 
-## Pending effects and next action
+T-001–T-005 local acceptance passes. Delivery issues 10–13 and milestone 2 are closed/read back. [Milestone report](reports/phases/1/1.1.md) and [phase report](reports/phases/1/PHASE-REPORT.md) retain independent code-review repairs, test scope and exact 0.1.0 package/notes hashes. Product source is verified; no GitHub release yet.
 
-Publish/read back DOCS-009; close/read back issue 9; explicitly merge/verify/publish preparation into main; close/read back preparation milestone 1. Then create phase/1-classic-baseline from verified main and project only phase 1 label/milestones/issues before task edits/tests. Keep each task verified/result/evidence/checkbox in one commit and push/read back before progression. Integrate/release each complete phase before the next; retain a blocker rather than weakening required browser coverage. Final stop is after verified full-scope 1.0.0 release or an unresolved required gate.
+All five phase-1 issues and both milestones are closed/read back; single-task closing-commit audit passed. Verify this merged state, commit/publish/read back main, then finalize the exact-notes default release commit/tag and GitHub v0.1.0 with package/hash/latest readback. Activate phase 2 only afterward. Full T-001–T-027 authority persists; do not repeat completed task work.
