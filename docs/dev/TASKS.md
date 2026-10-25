@@ -19,10 +19,11 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
             Depends on: none; phase activation and preparation integration required.
             Evidence: clean dependency install, typecheck/unit smoke/build; trusted Chromium headless-shell and managed Firefox provisioning identity; repeated isolated page/context/render/teardown through the pinned runner with finite whole-process deadlines. Synthetic setup evidence is distinguished from application acceptance in T-004. If provisioning fails, retain diagnostics and do not claim T-001 complete.
             Verified T-001: clean npm ci, typecheck, production build, development 2/2 and production 2/2 browser tests passed; each test used two isolated context/page cycles with native input and Canvas pixels/glyphs. Unit runner had zero product tests at this scaffold boundary. Official-image Chromium/FFmpeg recovery and process-local Firefox sandbox diagnosis are in DEVELOPMENT. No game acceptance or RED chronology is claimed.
-        - [ ] T-002 — Implement normal piece geometry and legal movement
+        - [x] T-002 — Implement normal piece geometry and legal movement
             Scope: src/domain/types.ts, geometry.ts, placement.ts, randomizer.ts and initial game.ts plus tests/unit/domain. Provide typed board/pose/command/event values, spawn, classic equal-probability source, collision, left/right/down movement and rotation without kicks; controller consumes these interfaces later.
             Depends on: T-001.
             Evidence: R-BASE coordinate table, all seven kinds, x/bottom bounds, above-top movement, occupied-cell rejection, rotation/O invariance, spawn failure and rejection without state mutation.
+            Verified T-002: observed RED (5 behavioral failures, 1 passing rejection fixture), then GREEN 6/6 domain tests and typecheck. Geometry, spawn/collision, immutable movement and classic no-kick rejection are implemented; UI remains scaffold-only.
         - [ ] T-003 — Implement gravity, locking, clears and game lifecycle
             Scope: domain game.ts, timing.ts and scoring.ts; command/time integration and deterministic fixtures. Consume T-002 state/geometry; provide active-time advancement, default full-interval locking, simultaneous clear/score/level, game-over event, pause and restart transitions.
             Depends on: T-002.

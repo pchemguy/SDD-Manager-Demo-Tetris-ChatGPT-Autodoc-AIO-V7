@@ -23,3 +23,7 @@ The bounded recovery script `scripts/extract-browser-image.py` documents the ver
 Unmodified Firefox launched, but newPage crashed; browser debug logs showed `Sandbox: writing /proc/self/uid_map: EPERM`. No missing linked libraries were reported. For trusted local tests in this managed host only, prefix browser commands with `PW_FIREFOX_LOCAL_SANDBOX_WORKAROUND=1`. That flag sets only the Firefox child environment `MOZ_DISABLE_CONTENT_SANDBOX=1`; the host boundary remains in place, while Firefox's internal content isolation is reduced. It is not enabled by default or in CI. Do not use it for arbitrary/untrusted browsing; re-evaluate when the host changes.
 
 With that diagnosed override, repeated isolated context/page cycles, native button interaction, Canvas color/glyph raster assertions, screenshots and teardown passed. Chromium passed without the override. Development-server and production-server evidence is distinct from future game acceptance.
+
+## Domain checks
+
+`tests/unit/domain/movement.test.ts` verifies all orientation cell counts, exact I rotation/O invariance, bounds/overlap, immutable movement, classic no-kick rejection and spawn failure with seeded draws. T-002 observed behavioral RED before the corresponding implementation and GREEN afterward.
