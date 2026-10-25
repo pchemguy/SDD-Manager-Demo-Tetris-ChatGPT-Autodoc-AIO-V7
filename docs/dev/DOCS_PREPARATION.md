@@ -20,7 +20,8 @@ One complete-scope preparation pass. No later scope passes are inferred. The pro
 | --- | --- |
 | DOCS-001 | All four existing root files retained unchanged; task/control/handoff records initialized. Provenance byte comparisons and CRLF-aware whitespace checks passed. Initialization commit 61a02c9a4898e7b771b634a07779899ace3bdf2e was pushed and exact-ref read back; issue 1 was closed with completion evidence and state/milestone readback verified. The connector returned an integration-specific 403 on update; the separately supplied repository token succeeded through the bounded API client. No credential replacement was needed. |
 | DOCS-002 | PROJECT proposal SHA-256 8c53570fd942c686f9878f54508d70e18bad0c81c01f0c7ce88a13bcdaa7445a. Accepted by the user’s “k” reply to the published brief at commit 5574842ad4f605128760b67e4e11c401640cb784; exact PROJECT bytes retained. Checked DOCS-002 accompanies this approval record; publication/issue closure follow. Scope/decision/content checks and a fresh builder review found no material feature omissions. Narrow-viewport behavior and restore interaction findings were corrected before presentation. |
-| DOCS-003–008 | Pending authoring and scoped QC after PROJECT acceptance; checkpoint preapproval derives solely from autodoc selection. |
+| DOCS-003 | Define domain, application, presentation and validated transfer boundaries. Reviewed content: ARCHITECTURE.md SHA-256 7a05d0cbb70612d85cc2dc9d6afaf1b7a2c7317410f606ae507aa88ed7e219bf; PROJECT.md SHA-256 f2eaf21e49943c5b6d2fa0e0a2eda8f0a27405ea8f8a2009ea01a1e891ad85d1. Scoped preapproval: user-selected autodoc, after PROJECT approval. Markdown/link checks passed; commit publication and issue 3 closure/readback follow. |
+| DOCS-003–008 | Remaining documents require authoring and scoped QC; checkpoint preapproval derives solely from autodoc selection. |
 | DOCS-009 | Not selected: autodoc stops before package QC. |
 
 ## Initialization
@@ -35,7 +36,7 @@ One complete-scope preparation pass. No later scope passes are inferred. The pro
 
 ## Accepted product decisions
 
-[PROJECT](PROJECT.md#proposed-consequential-choices) contains the defaults and gameplay boundary choices accepted with the brief. Choices include hiding straddling ghosts; no timer reset from grounded moves/repeated drops; airborne timer reset; paused/hidden-tab timer suspension; disabled Hold during penetration; activation only wholly inside the visible board; SRS kicks with traversal and landing viability; deepest legal penetrator landing; live setting changes; per-setting invalid-source fallback; full-file restore rejection; auto-pause before restore; deterministic leaderboard ties; and a 1280 × 800 supported desktop minimum with scrolling below it. The brief identifies the recommended TypeScript/Canvas/static-HTML direction and alternatives. Accepted by the user’s “k” reply; the recommended TypeScript/Canvas/static-HTML direction is included.
+[PROJECT](PROJECT.md#consequential-choices) contains the defaults and gameplay boundary choices accepted with the brief. Choices include hiding straddling ghosts; no timer reset from grounded moves/repeated drops; airborne timer reset; paused/hidden-tab timer suspension; disabled Hold during penetration; activation only wholly inside the visible board; SRS kicks with traversal and landing viability; deepest legal penetrator landing; live setting changes; per-setting invalid-source fallback; full-file restore rejection; auto-pause before restore; deterministic leaderboard ties; and a 1280 × 800 supported desktop minimum with scrolling below it. The brief identifies the recommended TypeScript/Canvas/static-HTML direction and alternatives. Accepted by the user’s “k” reply; the recommended TypeScript/Canvas/static-HTML direction is included.
 
 ## Proposal QC and limits
 
@@ -46,4 +47,4 @@ One complete-scope preparation pass. No later scope passes are inferred. The pro
 
 ## Pending transitions
 
-Publish/read back the PROJECT acceptance commit and close/read back issue 2, then author ARCHITECTURE through TASKS in dependency order with their scoped QC. Stop after DOCS-008; DOCS-009, documentation integration and implementation remain unselected.
+Publish/read back DOCS-003, then close/read back its issue 3. Continue only through DOCS-008 in dependency order. DOCS-009, preparation integration and implementation remain unselected. Recover actual prior publication/closure from Git and provider state; per-document completion does not prove subsequent effects.

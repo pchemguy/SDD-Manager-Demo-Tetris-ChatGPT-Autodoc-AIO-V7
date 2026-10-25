@@ -17,13 +17,13 @@ Build a browser game for a single player using a desktop keyboard. Deliver a pla
 
 ## Layout and interaction
 
-Place panels left to right: leaderboard, game info and controls, board, settings, controls/help. Keep the board centered in the viewport when optional panels change visibility. Proposed supported desktop viewport: at least 1280 × 800 CSS pixels. At smaller sizes, preserve readable panels and the board centered in a minimum-width game surface with scrolling; viewport centering is not guaranteed below that minimum. Keep the board and game-info panel visible within the supported viewport. Game-info contains separate leaderboard/settings/help visibility buttons above Pause and Start/Restart. Hiding settings hides its Save and Restore buttons too.
+Place panels left to right: leaderboard, game info and controls, board, settings, controls/help. Keep the board centered in the viewport when optional panels change visibility. Supported desktop viewport: at least 1280 × 800 CSS pixels. At smaller sizes, preserve readable panels and the board centered in a minimum-width game surface with scrolling; viewport centering is not guaranteed below that minimum. Keep the board and game-info panel visible within the supported viewport. Game-info contains separate leaderboard/settings/help visibility buttons above Pause and Start/Restart. Hiding settings hides its Save and Restore buttons too.
 
-## Proposed consequential choices
+## Consequential choices
 
-The following recommendations need confirmation as part of this brief. They refine interactions left open by the project description; they are not previously accepted requirements.
+The following choices define gameplay boundaries and default behavior.
 
-| Concern | Recommended behavior and reason |
+| Concern | Behavior and reason |
 | --- | --- |
 | Ghost crosses the midline | Dynamic mode shows the ghost only when every projected cell is in visible rows 10–19, using zero-based row indices. Any cell above row 10 hides it; a straddling projection is hidden. This avoids a partly upper-half ghost. |
 | Lock timing and resets | Ground contact starts a full current gravity interval. Successful grounded movement/rotation and repeated hard drops do not restart it. Becoming airborne clears it; fresh contact starts a new interval. Pause and hidden-tab suspension freeze gameplay timers, avoiding surprise locks on return. |
@@ -37,9 +37,9 @@ The following recommendations need confirmation as part of this brief. They refi
 
 ## Technical direction and alternatives
 
-Recommended: TypeScript, Canvas board rendering, standard HTML controls, and a static application with no server-side game state. Keep SQLite handling in a browser-compatible library with locally packaged runtime assets. This supports deterministic game tests and portable downloads without a backend.
+Use TypeScript, Canvas board rendering, standard HTML controls, and a static application with no server-side game state. Keep SQLite handling in a browser-compatible library with locally packaged runtime assets. This supports deterministic game tests and portable downloads without a backend.
 
-A DOM-cell board could work, but offers limited benefit for the requested rendering. A component UI framework would add dependencies and state coordination for a small number of panels. These are alternatives considered by the agent; no stack choice has yet been accepted by the human.
+A DOM-cell board could work, but offers limited benefit for the requested rendering. A component UI framework would add dependencies and state coordination for a small number of panels. The TypeScript/Canvas approach keeps rule tests independent of the presentation layer.
 
 Use Chromium as the primary automated browser and managed Firefox as secondary, in isolated environments under the repository browser policy. Browser provisioning and application acceptance remain implementation work; documentation does not establish browser execution evidence.
 
@@ -51,6 +51,6 @@ Use semantic versioning, starting with `0.1.0` for the verified classic baseline
 
 ## Scope limits and success
 
-Proposed non-goals are multiplayer, online accounts, server leaderboards, mobile touch controls, and automatic file saving/restoring. All game settings and results stay in the browser or a manually selected download; opening a saved file does not execute application code.
+Non-goals are multiplayer, online accounts, server leaderboards, mobile touch controls, and automatic file saving/restoring. All game settings and results stay in the browser or a manually selected download; opening a saved file does not execute application code.
 
 Success means the complete requested scope is playable and verified, prior increments continue working, restore failures leave all state unchanged, and the centered board and required controls remain usable across panel-visibility combinations. Exact scoring, controls, timing limits, file size limits, timestamp syntax, and remaining data contracts will be defined in the behavioral specification within these constraints.
