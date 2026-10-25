@@ -1,6 +1,6 @@
 # Project handoff
 
-Checkpoint: milestone 1.1 playable classic game verified; T-004 publication and hosted closure pending.
+Checkpoint: phase 1 local verification and 0.1.0 release preparation complete; integration/release pending.
 
 ## Authority and sources
 
@@ -16,6 +16,6 @@ Checkpoint: milestone 1.1 playable classic game verified; T-004 publication and 
 
 ## Verified outcome and next action
 
-T-001–T-004 are locally complete. See [milestone report](reports/phases/1/1.1.md): independent code review/repairs, 19 passing unit tests, typecheck/build, development 10/10 browser cases, production 8 passed/2 deliberate fixture-only skips, native raster/focus/rotation/DPR/navigation and package validation. No phase release yet.
+T-001–T-005 local acceptance passes. Delivery issues 10–13 and milestone 2 are closed/read back. [Milestone report](reports/phases/1/1.1.md) and [phase report](reports/phases/1/PHASE-REPORT.md) retain independent code-review repairs, test scope and exact 0.1.0 package/notes hashes. Product source is verified; no GitHub release yet.
 
-Publish/read back T-004 and close/read back issue 13; close/read back milestone 2 after all constituent issues are closed. Then T-005 performs the separate phase review, prepares 0.1.0/notes and package, and hands off verified integration/release. The full T-001–T-027 range remains authorized. Domain/gameplay and environment caveats are in the milestone report and DEVELOPMENT.
+Publish/read back T-005 and close/read back issue 14, then review milestone 3. Audit task closing commits; merge/verify/publish the complete phase to main. Finalize the default release commit/tag and GitHub v0.1.0 with exact notes/asset readback before phase-2 activation. The full range remains authorized; recover pending effects rather than repeating completed operations.

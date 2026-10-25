@@ -12,7 +12,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 
 ## Phase 1 — Classic baseline
 
-- [ ] Phase 1 — Classic baseline
+- [x] Phase 1 — Classic baseline
     - [x] Milestone 1.1 — Playable classic game
         - [x] T-001 — Establish reproducible build and isolated browser harness
             Scope: package/lockfile, TypeScript/Vite/Vitest/Playwright configurations, CI, scripts/browser-env.mjs and run-browser-tests.mjs, DEVELOPMENT guidance and generated-path exclusions. Consume existing host/browser/shell policies; produce pinned commands and dedicated absolute browser path.
@@ -34,10 +34,12 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
             Depends on: T-001, T-002, T-003.
             Evidence: native movement/rotation/soft drop, pause/blur/hidden-tab, game over/restart, readable score/level, Canvas pixels and centered board in both browsers through development and production server; repeated restart has one loop/listener set. Static package excludes secrets/caches. Milestone exit: review all 1.1 code, resolve blockers, demonstrate playable baseline, commit docs/dev/reports/phases/1/1.1.md and HANDOFF.
             Verified T-004/milestone 1.1: independent source review findings repaired/rechecked; 19 unit tests, typecheck/build, dev 10/10, production 8 passed with 2 explicit fixture-only skips, native raster/focus/rotation/DPR/navigation and static ZIP validation. Report: docs/dev/reports/phases/1/1.1.md.
-    - [ ] Milestone 1.2 — Phase review
-        - [ ] T-005 — Review, test and report the classic baseline
+    - [x] Milestone 1.2 — Phase review
+        - [x] T-005 — Review, test and report the classic baseline
             Depends on: T-004 and milestone 1.1 completion/verified closure.
             Evidence: PLAN phase-1 exits, independent code review versus actual tests, both browser capability/acceptance, build/package inspection, user guide and no deferred later-feature claims. Prepare 0.1.0 and RELEASE-NOTES; commit docs/dev/reports/phases/1/PHASE-REPORT.md and HANDOFF. Integration/release follows through the coordinator.
+
+            Verified T-005: separate phase integration/source/package review passed; 19 unit tests, typecheck/build, production 8 passed/2 fixture-only skips, prior unchanged-source development 10/10. Prepared 0.1.0, exact notes body and stable ZIP/checksum; hosted integration/tag/release transitions remain pending.
 
 ## Phase 2 — Modern mechanics
 
