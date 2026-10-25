@@ -3,7 +3,7 @@
 ## Current control
 
 - Mode: autodoc/onepass, selected by the current user request.
-- Scope: the complete browser Tetris target supplied in this conversation, including portable JSON/SQLite saves and the five-panel layout. PROJECT will retain the reviewable scope and proposed clarifications.
+- Scope: the complete browser Tetris target supplied in this conversation, including portable JSON/SQLite saves and the five-panel layout. [PROJECT](PROJECT.md) retains the reviewable scope and proposed clarifications.
 - Approval basis: PROJECT acceptance is pending. Autodoc preapproves ARCHITECTURE through TASKS after that acceptance; no product choices are presumed accepted.
 - Stop: after DOCS-008, before whole-package QC, documentation integration, or implementation.
 - Tracking: enabled for preparation and implementation by root AGENTS.md. The native sdd-docs-main milestone 1 and issues 1–9 were created from package definitions and read back with exact content/associations before repository modifications.
@@ -18,8 +18,8 @@ One complete-scope preparation pass. No later scope passes are inferred. The pro
 
 | Task | Current evidence / decision basis |
 | --- | --- |
-| DOCS-001 | All four existing root files retained unchanged; task/control/handoff records initialized. Provenance byte comparisons and CRLF-aware whitespace checks passed. Initialization publication and issue closure must be read back after this commit. |
-| DOCS-002 | Brief preparation is next; human approval remains required. |
+| DOCS-001 | All four existing root files retained unchanged; task/control/handoff records initialized. Provenance byte comparisons and CRLF-aware whitespace checks passed. Initialization commit 61a02c9a4898e7b771b634a07779899ace3bdf2e was pushed and exact-ref read back; issue 1 was closed with completion evidence and state/milestone readback verified. The connector returned an integration-specific 403 on update; the separately supplied repository token succeeded through the bounded API client. No credential replacement was needed. |
+| DOCS-002 | PROJECT proposal SHA-256 8c53570fd942c686f9878f54508d70e18bad0c81c01f0c7ce88a13bcdaa7445a. Human approval remains pending; DOCS-002 stays unchecked and issue 2 stays open. Scope/decision/content checks and a fresh builder review found no material feature omissions. Narrow-viewport behavior and restore interaction findings were corrected before presentation. |
 | DOCS-003–008 | Pending authoring and scoped QC after PROJECT acceptance; checkpoint preapproval derives solely from autodoc selection. |
 | DOCS-009 | Not selected: autodoc stops before package QC. |
 
@@ -33,6 +33,17 @@ One complete-scope preparation pass. No later scope passes are inferred. The pro
 - Initial project state: guidance and vendored skills only; no game source, development documents, or unfinished workflow branch existed.
 - Current reset: none.
 
+## Proposed product decisions
+
+[PROJECT](PROJECT.md#proposed-consequential-choices) contains the proposed defaults and gameplay boundary choices, not accepted decisions. Material proposals include hiding straddling ghosts; no timer reset from grounded moves/repeated drops; airborne timer reset; paused/hidden-tab timer suspension; disabled Hold during penetration; activation only wholly inside the visible board; SRS kicks with traversal and landing viability; deepest legal penetrator landing; live setting changes; per-setting invalid-source fallback; full-file restore rejection; auto-pause before restore; deterministic leaderboard ties; and a 1280 × 800 supported desktop minimum with scrolling below it. The brief identifies the recommended TypeScript/Canvas/static-HTML direction and alternatives. All await PROJECT acceptance.
+
+## Proposal QC and limits
+
+- Compared the brief against all requested feature groups, manual formats, six-setting precedence/persistence, panel positions/toggles, bonus indicator, and phase release requirements; no material scope omissions found.
+- A fresh builder reviewer flagged conflicting narrow-screen centering guarantees and the proposed active-play restore restriction. Both were clarified: viewport centering applies at the supported desktop minimum; smaller windows scroll a minimum-width game surface; Restore pauses play instead of being unavailable during play.
+- Added explicit penetrator activation/spawn and kick-interaction proposals. Kept exact scoring, input bindings, serialization limits and other non-material contract details for SPEC.
+- Checked project-document content boundaries, heading/list spacing, local Markdown links, preservation of DOCS-001 root files, and unchecked PROJECT status. No package QC, browser execution or product acceptance is claimed.
+
 ## Pending transitions
 
-Publish/read back this initialization checkpoint, then close/read back DOCS-001 issue 1. Prepare and publish PROJECT for human approval without checking DOCS-002. Keep the documentation milestone and remaining issues open.
+Publish/read back the PROJECT proposal, then obtain human acceptance of that exact proposed scope and consequential choices before architecture. Keep DOCS-002 unchecked, issue 2 open, and the documentation milestone open. After acceptance, record the approval and checked DOCS-002 together, publish/read back, close/read back its issue, then proceed through the preapproved document checkpoints to DOCS-008 and stop.
