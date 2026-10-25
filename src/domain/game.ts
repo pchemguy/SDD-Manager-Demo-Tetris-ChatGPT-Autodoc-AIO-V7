@@ -1,23 +1,24 @@
+/** Immutable gameplay transitions and active-time event ordering; adapters supply commands and elapsed time. */
 import type {Game,Rotation,Kind} from './types';
 import {emptyBoard,canPlace} from './placement';
 import {piece,cells} from './geometry';
-import {landing} from './projection';
+import {destination,traversable} from './projection';
 import {kicks} from './kicks';
 import {nextBag} from './randomizer';
 import {contact,gravityInterval} from './timing';
 import {scoreFor,addScore} from './scoring';
 export function createGame(seed=1):Game {
- return {board:emptyBoard(),active:null,status:'idle',seed:seed>>>0||1,pieceSerial:0,score:0,lines:0,level:1,time:0,gravityAt:1000,lockAt:null,completion:0,bag:[],queue:[],held:null,holdUsed:false};
+ return {board:emptyBoard(),active:null,status:'idle',seed:seed>>>0||1,pieceSerial:0,score:0,lines:0,level:1,time:0,gravityAt:1000,lockAt:null,completion:0,bag:[],queue:[],held:null,holdUsed:false,bonuses:0,penetrating:false};
 }
 export function startGame(seed=1):Game{return spawn(createGame(seed));}
-function end(g:Game):Game{return g.status==='gameover'?g:{...g,active:null,status:'gameover',completion:g.completion+1,lockAt:null};}
+function end(g:Game):Game{return g.status==='gameover'?g:{...g,active:null,status:'gameover',penetrating:false,completion:g.completion+1,lockAt:null};}
 function queued(g:Game):Game {
  let seed=g.seed,bag=[...g.bag],queue=[...g.queue];
  while(queue.length<2){const n=nextBag({seed,bag});seed=n.seed;bag=n.bag;queue.push(n.kind);}
  return {...g,seed,bag,queue};
 }
 function spawnKind(g:Game,kind:Kind,holdUsed:boolean):Game {
- const active=piece(kind),next={...g,pieceSerial:g.pieceSerial+1,active,holdUsed,gravityAt:g.time+gravityInterval(g.level),lockAt:null};
+ const active=piece(kind),next={...g,pieceSerial:g.pieceSerial+1,active,holdUsed,penetrating:false,gravityAt:g.time+gravityInterval(g.level),lockAt:null};
  return canPlace(g.board,active)?contact({...next,status:'running'}):end(next);
 }
 export function spawn(g:Game):Game {
@@ -26,12 +27,12 @@ export function spawn(g:Game):Game {
 export function move(g:Game,dx:number,dy:number):Game {
  if(g.status!=='running'||!g.active)return g;
  const active={...g.active,x:g.active.x+dx,y:g.active.y+dy};
- return canPlace(g.board,active)?contact({...g,active}):g;
+ return traversable(g.board,active,g.penetrating)?contact({...g,active}):g;
 }
 export function rotate(g:Game,direction:1|-1):Game {
  if(g.status!=='running'||!g.active)return g;
  const active={...g.active,rotation:((g.active.rotation+direction+4)%4) as Rotation};
- for(const [dx,dy] of kicks(active.kind,g.active.rotation,active.rotation)){const candidate={...active,x:active.x+dx,y:active.y+dy};if(canPlace(g.board,candidate))return contact({...g,active:candidate});}
+ for(const [dx,dy] of kicks(active.kind,g.active.rotation,active.rotation)){const candidate={...active,x:active.x+dx,y:active.y+dy};if(traversable(g.board,candidate,g.penetrating))return contact({...g,active:candidate});}
  return g;
 }
 export function softDrop(g:Game):Game {
@@ -48,7 +49,7 @@ export function lock(g:Game):Game {
  const remaining=board.filter(row=>row.some(c=>c===null)),count=20-remaining.length;
  const cleared=[...Array.from({length:count},()=>Array(10).fill(null)),...remaining];
  const lines=addScore(g.lines,count),score=addScore(g.score,scoreFor(count,g.level));
- return spawn({...g,board:cleared,active:null,score,lines,level:1+Math.floor(lines/10),lockAt:null});
+ return spawn({...g,board:cleared,active:null,score,lines,bonuses:Math.min(3,g.bonuses+(count===4?1:0)),level:1+Math.floor(lines/10),lockAt:null});
 }
 export function togglePause(g:Game):Game {
  return g.status==='running'?{...g,status:'paused'}:g.status==='paused'?{...g,status:'running'}:g;
@@ -71,12 +72,17 @@ export function advance(input:Game,ms:number):Game {
 }
 
 export function hold(g:Game):Game {
- if(g.status!=='running'||!g.active||g.holdUsed)return g;
+ if(g.status!=='running'||!g.active||g.holdUsed||g.penetrating)return g;
  const kind=g.active.kind;
  if(g.held)return spawnKind({...g,held:kind},g.held,true);
  return {...spawn({...g,held:kind,active:null}),holdUsed:true};
 }
 export function hardDrop(g:Game):Game{
  if(g.status!=='running'||!g.active)return g;
- const active=landing(g.board,g.active);return contact({...g,active,score:addScore(g.score,2*(active.y-g.active.y))});
+ const active=destination(g.board,g.active,g.penetrating);if(!active)return g;return contact({...g,active,score:addScore(g.score,2*(active.y-g.active.y))});
+}
+export function activate(g:Game):Game{
+ if(g.status!=='running'||!g.active||g.penetrating||g.bonuses<1||!cells(g.active).every(c=>c.x>=0&&c.x<10&&c.y>=0&&c.y<20))return g;
+ if(!destination(g.board,g.active,true))return g;
+ return contact({...g,bonuses:g.bonuses-1,penetrating:true});
 }

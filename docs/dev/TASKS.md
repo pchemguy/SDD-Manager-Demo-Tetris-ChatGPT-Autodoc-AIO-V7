@@ -66,7 +66,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 
 - [ ] Phase 3 — Penetrator gameplay
     - [ ] Milestone 3.1 — Penetrator ability
-        - [ ] T-010 — Implement bonus lifecycle and viable penetrator traversal
+        - [x] T-010 — Implement bonus lifecycle and viable penetrator traversal
             Scope: domain game/placement/timing and fixtures. Consume the canonical projector/kick owner; add four-line bonus earning/cap, successful activation spending, overlapping traversal with deepest valid terminal projection and Hold prohibition.
             Depends on: T-009 and verified phase-2 integration/release.
             Evidence: no-bonus/repeated/above-board/paused rejection, four simultaneous versus cumulative clears, cap three, pockets below blockers, no viable candidate, bounded kicks, airborne activation clearing contact and valid lock preserving unrelated settled cells. Ghost/drop consumers receive the same projected result.
