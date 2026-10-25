@@ -8,7 +8,7 @@ Use Node 22.12+ (verified on Node 24). Run `npm ci`, then `npm run dev`, and ope
 
 ## Project scope
 
-The current modern game is the second bounded increment. Penetrator gameplay, six configurable rules with cookie/URL persistence, session leaderboard and JSON/SQLite transfer are planned in the [seven-phase plan](docs/dev/PLAN.md). Current task state and verified evidence are in [TASKS](docs/dev/TASKS.md) and [HANDOFF](docs/dev/HANDOFF.md).
+The current game includes the first three bounded increments. Six configurable rules with cookie/URL persistence, session leaderboard and JSON/SQLite transfer are planned in the [seven-phase plan](docs/dev/PLAN.md). Current task state and verified evidence are in [TASKS](docs/dev/TASKS.md) and [HANDOFF](docs/dev/HANDOFF.md).
 
 - [Project brief](docs/dev/PROJECT.md), [behavioral specification](docs/dev/SPEC.md) and [JSON Schema](docs/dev/spec/SAVE-SCHEMA.json)
 - [Architecture](docs/dev/ARCHITECTURE.md), [components](docs/dev/DECOMPOSITION.md) and [layout](docs/dev/layout.md)
@@ -16,3 +16,5 @@ The current modern game is the second bounded increment. Penetrator gameplay, si
 Development uses [SDD Manager](SDD-MANAGER.md). See the [AI-assisted development disclosure](AI_DISCLOSURE.md).
 
 Modern controls include SRS rotation and Space hard drop with a dynamic landing ghost.
+
+V spends a four-line-clear bonus to turn the current piece into a white penetrator that can cross occupied cells and reach deeper empty pockets.

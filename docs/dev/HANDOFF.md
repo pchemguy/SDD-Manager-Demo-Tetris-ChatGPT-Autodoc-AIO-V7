@@ -1,23 +1,21 @@
 # Project handoff
 
-Checkpoint: phase 2 acceptance and 0.2.0 package preparation complete in T-009; integration/release pending.
+Checkpoint: phase 3 acceptance and 0.3.0 package preparation complete in T-012; integration/release pending.
 
 ## Authority and source
 
-- User authorized QC and full T-001–T-027 implementation with verified integration/releases after each phase. Standard reporting.
-- Phase 1 is integrated and published as v0.1.0 at release commit 0b51efdfc4771ff78e7fd128f626691bb4fad9ac; annotated tag/body, GitHub latest state and both asset/download-byte hashes verified.
-- Sources: [SPEC](SPEC.md), [PLAN](PLAN.md), [TASKS](TASKS.md), [layout](layout.md). Prior package QC and reviews remain applicable; task completion evidence changes do not alter planned behavior/dependencies.
+User authorized QC and full T-001–T-027 implementation, integration and per-phase releases. Phase 2 is published as v0.2.0 at fb9402e297f41c76a650977b14e68307ceb9d5d8; annotated tag/body, latest state, provider hashes and both downloaded asset bytes verified. Prior reports remain under reports/phases/1 and 2.
+
+Canonical [SPEC](SPEC.md), [PLAN](PLAN.md), [TASKS](TASKS.md) and [layout](layout.md) govern implementation. Browser environment and host-specific Firefox recovery remain in DEVELOPMENT.
 
 ## Branch and tracking
 
-- Working: phase/2-modern-mechanics; creation parent/integration target: main; branch-off 0b51efdfc4771ff78e7fd128f626691bb4fad9ac.
-- Verified label sdd-phase-2-Modern-mechanics, milestones 4 (2.1) and 5 (2.2), task issues 15–18 for T-006–T-009. Final collection read missed a just-created issue; fresh individual readback verified all bodies/associations without replaying creation.
-- Suspended parent: none. Complete and release phase 2 before phase 3 activation; no partial integration.
+Working phase/3-penetrator-gameplay branches from main release commit fb9402e297f41c76a650977b14e68307ceb9d5d8; integration target main; no suspended parent. Verified phase label sdd-phase-3-Penetrator-gameplay, milestones 6 (3.1) and 7 (3.2), issues 19–21 for T-010–T-012. Predecessor gates and exact projection bodies/associations verified before task changes.
 
-## Current work and next boundary
+## Next boundary
 
-See reports/phases/2/PHASE-REPORT.md for cumulative acceptance. Publish/close T-009 and milestone 2.2, then integrate and publish 0.2.0 before phase 3. Each task requires its own verified result/evidence/checkbox commit, push/readback and issue closure before dependent work. Existing isolated browser/Firefox recovery remains documented in DEVELOPMENT. Stop only at an unresolved required gate or after the authorized complete 1.0.0 release.
+See reports/phases/3/PHASE-REPORT.md for cumulative acceptance and resolved sampler repair. Publish/close T-012 and milestone 7, then integrate/publish 0.3.0 before phase 4. Each verified task has atomic result/evidence/checkbox commit, exact-ref publication and issue closure before dependent work. Integrate and publish 0.3.0 before phase 4. Continue the full authorized range; stop only on a required unresolved gate or complete 1.0.0 publication.
 
 ## Integration boundary
 
-Phase 2 source 523ca1ffb78544815a2c6d45eb655278dea42be2 is integrated with default parent 0b51efdfc4771ff78e7fd128f626691bb4fad9ac. Full phase verification and task/hosted closure preceded this merge. Publish/read back default, then create the matching release commit/tag and verify GitHub body/assets before activating the next phase.
+Phase 3 source ee8944e27443a3c230d98462b88b4b21db985d57 is integrated with default parent fb9402e297f41c76a650977b14e68307ceb9d5d8. Full phase verification and task/hosted closure preceded this merge. Publish/read back default, then create the matching release commit/tag and verify GitHub body/assets before activating the next phase.
