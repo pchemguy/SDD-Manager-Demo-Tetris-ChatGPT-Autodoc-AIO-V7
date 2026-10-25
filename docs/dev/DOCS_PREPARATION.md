@@ -5,7 +5,7 @@
 - Mode: autodoc/onepass, selected by the current user request.
 - Scope: the complete browser Tetris target supplied in this conversation, including portable JSON/SQLite saves and the five-panel layout. [PROJECT](PROJECT.md) retains the reviewable scope and proposed clarifications.
 - Approval basis: The user accepted the published PROJECT brief and proposed choices with “k” in direct reply to its approval request. Autodoc preapproves ARCHITECTURE through TASKS; their scoped technical QC has been performed as recorded below, with publication/closure reconciled through Git/provider readback.
-- Stop: after DOCS-008, before whole-package QC, documentation integration, or implementation.
+- Active authority: the user requested “Do QC and full implement”, advancing beyond the autodoc stop. Complete DOCS-009, integrate verified preparation, then execute T-001–T-027 across all seven phases with per-phase releases; stop on an unresolved required gate or after final verified release.
 - Tracking: enabled for preparation and implementation by root AGENTS.md. The native sdd-docs-main milestone 1 and issues 1–9 were created from package definitions and read back with exact content/associations before repository modifications.
 - Publication: every owned commit is pushed and read back before progression.
 - Reporting: Standard; Minimal and Explicit are available.
@@ -26,11 +26,11 @@ One complete-scope preparation pass. No later scope passes are inferred. The pro
 | DOCS-006 | Plan seven bounded playable capability increments and release exits. Reviewed content: PLAN.md SHA-256 636835aa47532354a7889422aaad8b35e248282a93982d5dc15a1485f823a7d9; PLAN-REVIEW-REPORT.md SHA-256 34d2db79de594515e1ff7a8d6a5ed663775c15b07cd38dc12d375c36ad772203. Scoped preapproval: user-selected autodoc, after PROJECT approval. Markdown/link checks passed; commit publication and issue 6 closure/readback follow. |
 | DOCS-007 | Allocate components, tests, runtime assets and release artifacts. Reviewed content: layout.md SHA-256 36f32a74535b20879a61ed5de5c4cb58cd19c0982ad53462d69db9e3f781abaf; PLAN-REVIEW-REPORT.md SHA-256 1113355ccdc2b34a0d09f8b2321ccc0db48114538a4a4ae88032e9d9ceefc15e. Scoped preapproval: user-selected autodoc, after PROJECT approval. Markdown/link checks passed; commit publication and issue 7 closure/readback follow. |
 | DOCS-008 | Derive 27 executable tasks and record the autodoc stopping checkpoint. Reviewed content: TASKS.md SHA-256 50c538ead667d661ee7381a965e38480502d84d4012782acab6beb310473725e; TASKS-REVIEW-REPORT.md SHA-256 6e6bcbbb321556fb604836170fde1a210b6343a7eccfccca028043b5da7a42c5; HANDOFF.md SHA-256 1d31e6a0ac69d197aa14a9ad2cff3ed0242612ff9ce1510c0add3603cc73de21. Scoped preapproval: user-selected autodoc, after PROJECT approval. Markdown/link checks passed; commit publication and issue 8 closure/readback follow. |
-| DOCS-009 | Not selected: autodoc stops before package QC. |
+| DOCS-009 | Whole-package QC authorized by “Do QC and full implement”. See DOCS-QC-REPORT.md for package scope, input identities, historical repairs and passing checks. Completion checkbox/report/HANDOFF accompany this checkpoint; publication and issue closure follow. |
 
 ## Initialization
 
-- Original root files: AGENTS.md, AI_DISCLOSURE.md, SDD-MANAGER.md, SKILL_DISCOVERY_PROTOCOL.md all existed at the initial published baseline dd006f36a24fe145c3e5eae219caf7a0f6c2bfe0. None copied or changed. Their current bytes match that baseline.
+- Original root files: AGENTS.md, AI_DISCLOSURE.md, SDD-MANAGER.md, SKILL_DISCOVERY_PROTOCOL.md all existed at the initial published baseline dd006f36a24fe145c3e5eae219caf7a0f6c2bfe0. None copied or changed. Their bytes matched that baseline at DOCS-001; later AGENTS project-navigation additions were authorized document maintenance.
 - Continuation: all four existed, so no mixed-initialization pause applies.
 - Manual provenance: default enabled; two bundled templates were copied byte for byte, with no transcript created. Seed 3ba1ca89180f6f9c2ce980bc0305823bcc937ef2 on design-docs/ai-logs; verified two-parent main merge 9134edef230f2882427442a678602ae50d0b1118 was pushed/read back before creating design-docs/main.
 - Credential input is ignored and untracked under the root *.tkn rule; no credential appears in tracked content.
@@ -55,4 +55,4 @@ The initial document-checkpoint helper replaced a grouped pending row once, then
 
 ## Pending transitions
 
-Publish/read back DOCS-008, then close/read back its issue 8. Continue only through DOCS-008 in dependency order. DOCS-009, preparation integration and implementation remain unselected. Recover actual prior publication/closure from Git and provider state; per-document completion does not prove subsequent effects.
+Publish/read back DOCS-009, close/read back issue 9, explicitly merge verified preparation into main, verify/publish/read back main, then close/read back sdd-docs-main. The current user request authorizes full implementation T-001–T-027 after those gates; activate only phase 1 initially. Every task has its own verified commit/push, and each completed phase is integrated and released before its successor.
