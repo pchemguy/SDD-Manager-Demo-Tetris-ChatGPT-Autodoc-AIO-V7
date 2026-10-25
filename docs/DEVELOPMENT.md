@@ -33,3 +33,7 @@ Gravity/contact advancement uses explicit active time, with contact expiry befor
 ## Preference verification
 
 Unit tests inject failures before and after each managed cookie/history write, including silent refusal and denied rollback. Browser tests cover all six keys, explicit defaults, omitted/invalid/duplicate parameters, URL preservation, cookie attributes and actual profile close/reopen. Persistent profiles are created only under each test’s owned output directory and removed after managed contexts close. Firefox uses the same diagnosed process-local override for these test-owned launches. No personal profile is opened.
+
+## Portable validation
+
+The canonical Draft 2020-12 file is docs/dev/spec/SAVE-SCHEMA.json. Vite emits its bytes as tetris-save.schema.json; package validation compares them and requires one unique archive entry. Ajv 8.20.0 uses its 2020 class with explicit canonical date-time validation. The codec scans decoded member names before constructing ordinary JSON objects, then validates the complete shape, domains, real UTC calendar, numeric bounds and unique IDs before returning a normalized copy. JSON is limited to 1 MiB and requires UTF-8 (optional leading BOM). File UI integration follows the codec task.

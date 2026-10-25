@@ -134,7 +134,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 
 - [ ] Phase 7 — Portable saves
     - [ ] Milestone 7.1 — JSON transfer
-        - [ ] T-022 — Implement canonical snapshot validation and strict JSON codec
+        - [x] T-022 — Implement canonical snapshot validation and strict JSON codec
             Scope: transfer/types.ts, validate.ts, json.ts, canonical SAVE-SCHEMA packaging and synthetic transfer corpus. Consume exact settings/result types; produce a validated immutable payload or located error, with duplicate-member detection before object construction.
             Depends on: T-021 and verified phase-6 integration/release.
             Evidence: valid empty/top-ten/default payloads and schema equivalence; unknown/missing/duplicate properties or IDs, unsafe/fractional/negative numbers, bad UUID/calendar/offset, version and size/UTF-8/BOM cases. A bad final result rejects the whole file; no application mutation occurs in codecs.

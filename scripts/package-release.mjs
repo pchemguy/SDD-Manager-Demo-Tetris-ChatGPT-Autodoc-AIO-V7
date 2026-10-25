@@ -13,7 +13,6 @@ function visit(dir,prefix=''){
 visit('dist');
 entries.push({name:'VERSION',data:Buffer.from(version+'\n')});
 for(const [name,source] of [['USER-GUIDE.md','docs/USER-GUIDE.md'],['DEVELOPMENT.md','docs/DEVELOPMENT.md'],['LICENSE','LICENSE']])if(fs.existsSync(source))entries.push({name,data:fs.readFileSync(source)});
-if(fs.existsSync('public/tetris-save.schema.json'))entries.push({name:'tetris-save.schema.json',data:fs.readFileSync('public/tetris-save.schema.json')});
 const crc32=data=>{let crc=0xffffffff;for(const byte of data){crc^=byte;for(let i=0;i<8;i++)crc=(crc>>>1)^((crc&1)?0xedb88320:0);}return (crc^0xffffffff)>>>0;};
 const local=[],central=[];let offset=0;
 for(const {name,data} of entries){
