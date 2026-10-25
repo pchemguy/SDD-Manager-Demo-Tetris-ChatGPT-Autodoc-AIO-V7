@@ -49,7 +49,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
             Scope: domain randomizer/game, view model, Hold/next rendering and focused tests/docs. Consume baseline source/state interfaces; replace classic draws with seven-bag while preserving restart determinism and spawn/lifecycle contracts.
             Depends on: T-005 and verified phase-1 integration/release.
             Evidence: complete seeded bags and bag boundaries; hidden preview consumes no extra pieces; empty/swap/repeated Hold, rotation reset, incoming spawn failure and hold-used reset after lock; native Hold/preview checks in both browsers.
-        - [ ] T-007 — Implement ordered SRS wall and floor kicks
+        - [x] T-007 — Implement ordered SRS wall and floor kicks
             Scope: geometry/placement/game rotation and domain fixtures. Consume the canonical orientation/pivot definitions; produce first-legal-candidate rotation for both directions with exact screen-coordinate tables.
             Depends on: T-006.
             Evidence: I/JLSTZ wall/floor cases, candidate order, all candidates rejected, above-top normal poses, O invariance and no score/queue mutation from rejected rotation; relevant baseline regressions.

@@ -1,6 +1,7 @@
 import type {Game,Rotation,Kind} from './types';
 import {emptyBoard,canPlace} from './placement';
 import {piece,cells} from './geometry';
+import {kicks} from './kicks';
 import {nextBag} from './randomizer';
 import {contact,gravityInterval} from './timing';
 import {scoreFor,addScore} from './scoring';
@@ -29,7 +30,8 @@ export function move(g:Game,dx:number,dy:number):Game {
 export function rotate(g:Game,direction:1|-1):Game {
  if(g.status!=='running'||!g.active)return g;
  const active={...g.active,rotation:((g.active.rotation+direction+4)%4) as Rotation};
- return canPlace(g.board,active)?contact({...g,active}):g;
+ for(const [dx,dy] of kicks(active.kind,g.active.rotation,active.rotation)){const candidate={...active,x:active.x+dx,y:active.y+dy};if(canPlace(g.board,candidate))return contact({...g,active:candidate});}
+ return g;
 }
 export function softDrop(g:Game):Game {
  if(g.status!=='running'||!g.active)return g;
