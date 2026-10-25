@@ -24,10 +24,11 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
             Depends on: T-001.
             Evidence: R-BASE coordinate table, all seven kinds, x/bottom bounds, above-top movement, occupied-cell rejection, rotation/O invariance, spawn failure and rejection without state mutation.
             Verified T-002: observed RED (5 behavioral failures, 1 passing rejection fixture), then GREEN 6/6 domain tests and typecheck. Geometry, spawn/collision, immutable movement and classic no-kick rejection are implemented; UI remains scaffold-only.
-        - [ ] T-003 — Implement gravity, locking, clears and game lifecycle
+        - [x] T-003 — Implement gravity, locking, clears and game lifecycle
             Scope: domain game.ts, timing.ts and scoring.ts; command/time integration and deterministic fixtures. Consume T-002 state/geometry; provide active-time advancement, default full-interval locking, simultaneous clear/score/level, game-over event, pause and restart transitions.
             Depends on: T-002.
             Evidence: R-BASE scoring/level boundaries, compaction, above-top lock, 999/1000 ms contact, frame partitioning, pause/resume, score saturation and unique completion; document baseline rule choices.
+            Verified T-003: RED 7 lifecycle/timing failures with 6 earlier tests passing; GREEN 13/13 tests and typecheck. Exact contact boundary, grounded/airborne reset, simultaneous clears, pre-clear-level score, immutable boards, pause/lag, distinct frame partitions, saturation and single top-out completion covered.
         - [ ] T-004 — Deliver playable classic interface and baseline package
             Scope: src/app/controller.ts and view-model.ts, UI input/board/panels/styles, platform clock, bootstrap, e2e tests, USER-GUIDE and release-package script. Integrate T-002/T-003 into one frame/input lifecycle, centered board/game-info/help, Pause and Start/Restart. Exclude unimplemented feature controls; keep later panel space compatible with layout.
             Depends on: T-001, T-002, T-003.

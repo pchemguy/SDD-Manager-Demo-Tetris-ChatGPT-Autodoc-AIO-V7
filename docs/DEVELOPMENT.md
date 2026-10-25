@@ -27,3 +27,5 @@ With that diagnosed override, repeated isolated context/page cycles, native butt
 ## Domain checks
 
 `tests/unit/domain/movement.test.ts` verifies all orientation cell counts, exact I rotation/O invariance, bounds/overlap, immutable movement, classic no-kick rejection and spawn failure with seeded draws. T-002 observed behavioral RED before the corresponding implementation and GREEN afterward.
+
+Gravity/contact advancement uses explicit active time, with contact expiry before gravity at the same timestamp. Lifecycle fixtures cover 999/1000 ms contact, 100 ms versus 210 ms partitions, pause/lag, immutable compaction, level-boundary awards and top-out completion.
