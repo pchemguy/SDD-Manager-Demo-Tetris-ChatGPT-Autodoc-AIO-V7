@@ -14,10 +14,11 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 
 - [ ] Phase 1 — Classic baseline
     - [ ] Milestone 1.1 — Playable classic game
-        - [ ] T-001 — Establish reproducible build and isolated browser harness
+        - [x] T-001 — Establish reproducible build and isolated browser harness
             Scope: package/lockfile, TypeScript/Vite/Vitest/Playwright configurations, CI, scripts/browser-env.mjs and run-browser-tests.mjs, DEVELOPMENT guidance and generated-path exclusions. Consume existing host/browser/shell policies; produce pinned commands and dedicated absolute browser path.
             Depends on: none; phase activation and preparation integration required.
             Evidence: clean dependency install, typecheck/unit smoke/build; trusted Chromium headless-shell and managed Firefox provisioning identity; repeated isolated page/context/render/teardown through the pinned runner with finite whole-process deadlines. Synthetic setup evidence is distinguished from application acceptance in T-004. If provisioning fails, retain diagnostics and do not claim T-001 complete.
+            Verified T-001: clean npm ci, typecheck, production build, development 2/2 and production 2/2 browser tests passed; each test used two isolated context/page cycles with native input and Canvas pixels/glyphs. Unit runner had zero product tests at this scaffold boundary. Official-image Chromium/FFmpeg recovery and process-local Firefox sandbox diagnosis are in DEVELOPMENT. No game acceptance or RED chronology is claimed.
         - [ ] T-002 — Implement normal piece geometry and legal movement
             Scope: src/domain/types.ts, geometry.ts, placement.ts, randomizer.ts and initial game.ts plus tests/unit/domain. Provide typed board/pose/command/event values, spawn, classic equal-probability source, collision, left/right/down movement and rotation without kicks; controller consumes these interfaces later.
             Depends on: T-001.

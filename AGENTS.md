@@ -47,3 +47,7 @@ Maintain project-specific navigation and validated setup/check commands here as 
 ## Project navigation
 
 See [HANDOFF](docs/dev/HANDOFF.md) for the current workflow and stopping boundary. [SPEC](docs/dev/SPEC.md) owns behavior; [PLAN](docs/dev/PLAN.md) and [TASKS](docs/dev/TASKS.md) own delivery and executable work. [layout](docs/dev/layout.md) distinguishes intended paths/commands from verified implementation.
+
+## Verified setup and checks
+
+Node 24 with the pinned package-lock.json: `npm ci`, `npm run typecheck`, `npm run test:unit`, `npm run build`, `npm run test:e2e`, `npm run test:e2e:prod`. See [DEVELOPMENT](docs/DEVELOPMENT.md) for dedicated browser setup, official-image recovery and the host-specific Firefox environment override. The T-001 scaffold has no game unit tests or gameplay acceptance yet.

@@ -1,23 +1,21 @@
 # Project handoff
 
-Checkpoint: DOCS-009 passing package QC; preparation integration pending.
+Checkpoint: phase 1 initialization and verified T-001 build/browser harness.
 
-Outcome: full document package reviewed and current control/evidence clarified. No game implementation exists. Historical schema-check/evidence-row repairs are retained in [package QC](DOCS-QC-REPORT.md).
+## Authority and sources
 
-## Workflow and authority
+- User requested QC and full implementation: T-001–T-027, all seven phases, each verified/integrated/released before the next. Standard reporting; no additional routine checkpoint approval required.
+- [SPEC](SPEC.md), [PLAN](PLAN.md), [layout](layout.md), [TASKS](TASKS.md) and [package QC](DOCS-QC-REPORT.md) govern execution. Root policies remain controlling.
+- Preparation DOCS-009 passed and all nine issues closed; explicit default merge 00b19ff57fb03f48601e0b80b056c4d5dc4a835c was published/read back; documentation milestone 1 closed/read back.
 
-- Main development; sdd-manage coordinates preparation integration then sdd-implement executes the full range T-001–T-027.
-- Authority: user “Do QC and full implement”, following PROJECT acceptance and autodoc-preapproved document preparation. This advances the earlier DOCS-008 stop and authorizes required integration and all seven implementation phases/releases.
-- Sources: [SPEC](SPEC.md), [PLAN](PLAN.md), [layout](layout.md), [TASKS](TASKS.md), [DOCS tasks](DOCS_TASKS.md), [preparation evidence](DOCS_PREPARATION.md), [package QC](DOCS-QC-REPORT.md).
-- Package/policies: SDD Manager 0.15.3, root AGENTS, browser and Windows shell policies. Tracking enabled; Standard reporting. No additional routine approval required within this range.
+## Branches and tracking
 
-## Branch and checkpoint
+- Working: phase/1-classic-baseline. Creation parent/integration target: actual default main. Branch-off: 00b19ff57fb03f48601e0b80b056c4d5dc4a835c.
+- Phase label sdd-phase-1-Classic-baseline; delivery milestone 2 (1.1), review milestone 3 (1.2), task issues 10–14. All five issue bodies/associations verified. Projection timed out on final readback after creating T-005; read-only reconciliation verified it, then two brief-tail headings were corrected without duplicate objects.
+- Suspended parent: none. Integrate only after the complete phase exits/reviews; no partial phase merge.
 
-- Working: design-docs/main; creation parent/integration target: actual default main.
-- Branch-off: 9134edef230f2882427442a678602ae50d0b1118.
-- Reviewed preparation baseline: 334eccb6046854faee3ad53c0f63c7efd15a317d, plus this QC checkpoint.
-- Suspended parent: none; manual provenance scaffold already integrated.
+## Verified outcome and next action
 
-## Pending effects and next action
+T-001: exact-pinned build/toolchain and isolated browser harness verified by clean npm ci/typecheck/build, 2/2 development and 2/2 production native/raster tests (two context cycles each). Unit runner has no game tests yet. See [DEVELOPMENT](../DEVELOPMENT.md) for official-image digest/source recovery and diagnosed process-local Firefox content-sandbox workaround; no global/personal browser is used.
 
-Publish/read back DOCS-009; close/read back issue 9; explicitly merge/verify/publish preparation into main; close/read back preparation milestone 1. Then create phase/1-classic-baseline from verified main and project only phase 1 label/milestones/issues before task edits/tests. Keep each task verified/result/evidence/checkbox in one commit and push/read back before progression. Integrate/release each complete phase before the next; retain a blocker rather than weakening required browser coverage. Final stop is after verified full-scope 1.0.0 release or an unresolved required gate.
+Publish/read back this task commit, then close/read back issue 10. Resume T-002 normal geometry/movement; later task/evidence/checkbox commits reconstruct progress without changing this snapshot every time. Missing required evidence remains a blocker. Final authorized boundary is verified full-scope 1.0.0 release.
