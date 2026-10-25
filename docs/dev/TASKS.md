@@ -45,7 +45,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 
 - [ ] Phase 2 — Modern mechanics
     - [ ] Milestone 2.1 — Modern play aids
-        - [ ] T-006 — Add seven-bag, Hold and next preview
+        - [x] T-006 — Add seven-bag, Hold and next preview
             Scope: domain randomizer/game, view model, Hold/next rendering and focused tests/docs. Consume baseline source/state interfaces; replace classic draws with seven-bag while preserving restart determinism and spawn/lifecycle contracts.
             Depends on: T-005 and verified phase-1 integration/release.
             Evidence: complete seeded bags and bag boundaries; hidden preview consumes no extra pieces; empty/swap/repeated Hold, rotation reset, incoming spawn failure and hold-used reset after lock; native Hold/preview checks in both browsers.
