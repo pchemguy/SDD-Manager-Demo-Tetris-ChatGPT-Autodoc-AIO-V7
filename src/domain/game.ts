@@ -1,5 +1,6 @@
 /** Immutable gameplay transitions and active-time event ordering; adapters supply commands and elapsed time. */
-import type {Game,Rotation,Kind} from './types';
+import type {Game,Rotation,Kind,Rules} from './types';
+import {DEFAULT_RULES} from './types';
 import {emptyBoard,canPlace} from './placement';
 import {piece,cells} from './geometry';
 import {destination,traversable} from './projection';
@@ -8,7 +9,7 @@ import {nextBag} from './randomizer';
 import {contact,gravityInterval} from './timing';
 import {scoreFor,addScore} from './scoring';
 export function createGame(seed=1):Game {
- return {board:emptyBoard(),active:null,status:'idle',seed:seed>>>0||1,pieceSerial:0,score:0,lines:0,level:1,time:0,gravityAt:1000,lockAt:null,completion:0,bag:[],queue:[],held:null,holdUsed:false,bonuses:0,penetrating:false};
+ return {rules:{...DEFAULT_RULES},board:emptyBoard(),active:null,status:'idle',seed:seed>>>0||1,pieceSerial:0,score:0,lines:0,level:1,time:0,gravityAt:1000,lockAt:null,completion:0,bag:[],queue:[],held:null,holdUsed:false,bonuses:0,penetrating:false};
 }
 export function startGame(seed=1):Game{return spawn(createGame(seed));}
 function end(g:Game):Game{return g.status==='gameover'?g:{...g,active:null,status:'gameover',penetrating:false,completion:g.completion+1,lockAt:null};}
@@ -38,7 +39,7 @@ export function rotate(g:Game,direction:1|-1):Game {
 export function softDrop(g:Game):Game {
  if(g.status!=='running'||!g.active)return g;
  const next=move(g,0,1);
- return next===g?contact(g):{...next,score:addScore(next.score,1)};
+ return next===g?(g.rules.lockPolicy==='failedDown'?lock(g):contact(g)):{...next,score:addScore(next.score,1)};
 }
 export function lock(g:Game):Game {
  if(g.status!=='running'||!g.active)return g;
@@ -65,24 +66,29 @@ export function advance(input:Game,ms:number):Game {
   if(g.lockAt!==null&&g.lockAt<=at){g=lock(g);continue;}
   if(g.gravityAt<=at){
    const before=g,down=move(g,0,1);
-   g={...(down===before?contact(g):down),gravityAt:at+gravityInterval(g.level)};
+   if(down===before&&g.rules.lockPolicy==='failedDown'){g=lock(g);}else{g={...(down===before?contact(g):down),gravityAt:at+gravityInterval(g.level)};}
   }else break;
  }
  return g;
 }
 
 export function hold(g:Game):Game {
- if(g.status!=='running'||!g.active||g.holdUsed||g.penetrating)return g;
+ if(g.status!=='running'||!g.active||g.holdUsed||g.penetrating||!g.rules.hold)return g;
  const kind=g.active.kind;
  if(g.held)return spawnKind({...g,held:kind},g.held,true);
  return {...spawn({...g,held:kind,active:null}),holdUsed:true};
 }
 export function hardDrop(g:Game):Game{
- if(g.status!=='running'||!g.active)return g;
- const active=destination(g.board,g.active,g.penetrating);if(!active)return g;return contact({...g,active,score:addScore(g.score,2*(active.y-g.active.y))});
+ if(g.status!=='running'||!g.active||!g.rules.hardDrop)return g;
+ const active=destination(g.board,g.active,g.penetrating);if(!active)return g;const next=contact({...g,active,score:addScore(g.score,2*(active.y-g.active.y))});return g.rules.hardDropLock==='immediate'?lock(next):next;
 }
 export function activate(g:Game):Game{
  if(g.status!=='running'||!g.active||g.penetrating||g.bonuses<1||!cells(g.active).every(c=>c.x>=0&&c.x<10&&c.y>=0&&c.y<20))return g;
  if(!destination(g.board,g.active,true))return g;
  return contact({...g,bonuses:g.bonuses-1,penetrating:true});
+}
+export function applyRules(g:Game,rules:Rules):Game{
+ const changed=g.rules.lockPolicy!==rules.lockPolicy;
+ const next={...g,rules:{hardDrop:rules.hardDrop,hold:rules.hold,hardDropLock:rules.hardDropLock,lockPolicy:rules.lockPolicy},lockAt:changed?null:g.lockAt};
+ return changed?contact(next):next;
 }
