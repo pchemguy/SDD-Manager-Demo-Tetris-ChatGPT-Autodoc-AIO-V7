@@ -1,3 +1,5 @@
+import {validateSnapshot} from '../transfer/validate';
+import type {Snapshot} from '../transfer/types';
 /** Coordinates commands, live preferences and one completed result per game; platform effects stay injected. */
 import {newResultID,utcTimestamp} from '../platform/identity';
 import {recordResult,type Result} from './leaderboard';
@@ -10,10 +12,14 @@ export type Command='left'|'right'|'down'|'cw'|'ccw'|'pause'|'start'|'hold'|'dro
 export class Controller {
  state:Game=createGame();
  results:Result[]=[];
+ fileOperation:'save'|'restore'|null=null;
+ snapshot():Snapshot{return {formatVersion:1,results:this.results.map(r=>({...r})),settings:{...this.settings}};}
+ restoreSnapshot(candidate:unknown){const snapshot=validateSnapshot(candidate),game=applyRules(this.state,snapshot.settings);this.settingsTransaction.commit(snapshot.settings,SETTING_KEYS,settings=>{this.state=game;this.settings=settings;this.results=snapshot.results;});}
  settings:Settings={...DEFAULT_SETTINGS};
  private settingsTransaction=new SettingsTransaction();
  get persistenceBlocked(){return this.settingsTransaction.blocked;}
  changeSettings(candidate:unknown,keys?:readonly SettingsKey[]){
+  if(this.fileOperation==='restore')throw new Error('Restore is in progress.');
   commitSettings(candidate,s=>this.settingsTransaction.commit(s,keys??SETTING_KEYS.filter(k=>s[k]!==this.settings[k]),next=>{this.state=applyRules(this.state,next);this.settings=next;}));
  }
  initializePreferences(port:Preferences):string[]{
@@ -26,6 +32,7 @@ export class Controller {
  private recorded=false;
  private recordCompletion(){if(this.state.status==='gameover'&&this.state.completion>0&&!this.recorded){this.results=recordResult(this.results,{id:this.identity.id(),score:this.state.score,timestamp:this.identity.utc()});this.recorded=true;}}
  command(command:Command){
+  if(this.fileOperation==='restore')return;
   try{
   if(command==='start'){this.recordCompletion();this.recorded=false;this.state=applyRules(startGame(this.seed()),this.settings);this.resetClock();return;}
   if(command==='pause'){this.state=togglePause(this.state);if(this.state.status==='running')this.resetClock();return;}

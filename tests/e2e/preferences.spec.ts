@@ -23,6 +23,6 @@ test('saved cookie survives closing and reopening an isolated persistent browser
 });
 test('incomplete rollback leaves a clear error and disables all further preference writes',async({page})=>{
  await page.goto('/?u=kept#fragment');await page.evaluate(()=>{let count=0;const original=history.replaceState.bind(history);history.replaceState=(state,title,url)=>{count++;(window as any).__historyWrites=count;if(count===1)original(state,title,url);throw new DOMException('recovery denied','SecurityError');};});
- await page.getByLabel('Hold piece',{exact:true}).selectOption('off');await expect(page.locator('#message')).toContainText('recovery is incomplete');for(const field of await page.getByRole('combobox').all())await expect(field).toBeDisabled();await expect(page.getByLabel('Hold piece',{exact:true})).toHaveValue('on');const writes=await page.evaluate(()=>(window as any).__historyWrites);
+ await page.getByLabel('Hold piece',{exact:true}).selectOption('off');await expect(page.locator('#message')).toContainText('recovery is incomplete');for(const field of await page.locator('#setting-fields').getByRole('combobox').all())await expect(field).toBeDisabled();await expect(page.getByLabel('Hold piece',{exact:true})).toHaveValue('on');const writes=await page.evaluate(()=>(window as any).__historyWrites);
  await page.getByLabel('Hold piece',{exact:true}).dispatchEvent('change');await expect(page.locator('#message')).toContainText('recovery is incomplete');expect(await page.evaluate(()=>(window as any).__historyWrites)).toBe(writes);
 });

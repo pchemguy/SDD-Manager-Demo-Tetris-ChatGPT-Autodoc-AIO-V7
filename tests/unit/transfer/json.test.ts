@@ -28,3 +28,7 @@ it('requires every root/setting member and accepts safe numeric/calendar extreme
  for(const key of Object.keys(DEFAULT_SETTINGS)){const value:any=snapshot();delete value.settings[key];expect(()=>validateSnapshot(value)).toThrow();value.settings[key]=null;expect(()=>validateSnapshot(value)).toThrow();}
  const extreme={...snapshot(),results:[{...item(1),score:Number.MAX_SAFE_INTEGER,timestamp:'0001-01-01T00:00:00.000Z'},{...item(2),timestamp:'9999-12-31T23:59:59.999Z'}],settings:{...DEFAULT_SETTINGS,ghost:'hide' as const}};expect(decodeJSON(encode(extreme))).toEqual(extreme);
 });
+it('rejects fractional numeric tokens that JavaScript would round/underflow and preserves exact integral forms',()=>{
+ const text=JSON.stringify({...snapshot(),results:[item(1)]});for(const token of ['9007199254740991.1','1.00000000000000001','1e-999','9007199254740992','-0.00001'])expect(()=>decodeJSON(new TextEncoder().encode(text.replace('"score":1','"score":'+token)))).toThrow();
+ for(const [token,score] of [['1.0',1],['10e-1',1],['0.1e1',1],['90071992547409910e-1',Number.MAX_SAFE_INTEGER],['0e-999999',0]] as const)expect(decodeJSON(new TextEncoder().encode(text.replace('"score":1','"score":'+token))).results[0].score).toBe(score);
+});

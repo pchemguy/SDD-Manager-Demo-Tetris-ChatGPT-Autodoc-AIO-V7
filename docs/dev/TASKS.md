@@ -133,12 +133,12 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 ## Phase 7 — Portable saves
 
 - [ ] Phase 7 — Portable saves
-    - [ ] Milestone 7.1 — JSON transfer
+    - [x] Milestone 7.1 — JSON transfer
         - [x] T-022 — Implement canonical snapshot validation and strict JSON codec
             Scope: transfer/types.ts, validate.ts, json.ts, canonical SAVE-SCHEMA packaging and synthetic transfer corpus. Consume exact settings/result types; produce a validated immutable payload or located error, with duplicate-member detection before object construction.
             Depends on: T-021 and verified phase-6 integration/release.
             Evidence: valid empty/top-ten/default payloads and schema equivalence; unknown/missing/duplicate properties or IDs, unsafe/fractional/negative numbers, bad UUID/calendar/offset, version and size/UTF-8/BOM cases. A bad final result rejects the whole file; no application mutation occurs in codecs.
-        - [ ] T-023 — Deliver manual JSON Save and atomic Restore
+        - [x] T-023 — Deliver manual JSON Save and atomic Restore
             Scope: platform/files.ts, app settings/results commit coordination, panels/controller and native download/upload tests/docs. Add exactly one bottom-of-settings Save/Restore pair, snapshot capture, pause-before-picker, serialized operation/cancellation/error handling and complete persistence/state commit after T-022 validation.
             Depends on: T-022.
             Evidence: native JSON download/reupload, replacement including empty history, all six cookies/query defaults, preserved active board/score, explicit resume, hiding settings hides both buttons, blocked start during commit, unchanged data on every invalid/cancel/failure case and no resource leaks in both browsers. Milestone exit: review 7.1, JSON demonstration, docs/dev/reports/phases/7/7.1.md and HANDOFF.
