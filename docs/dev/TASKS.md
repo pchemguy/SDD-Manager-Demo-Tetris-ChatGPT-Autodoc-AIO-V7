@@ -4,7 +4,7 @@
 
 [PLAN](PLAN.md) owns phase/milestone outcomes and versions; [layout](layout.md) owns paths; [SPEC](SPEC.md) and its children own behavior. Each task below includes its own meaningful failing contract tests, implementation, GREEN/regression evidence and affected user/developer documentation. Record actual RED/GREEN commands/outcomes; no production task is complete from a checkbox alone.
 
-Before a phase starts, require its authorized range, accepted/published integrated preparation, current QC, predecessor integration/release and verified phase tracking. Keep one task's result/evidence/initial checkbox in one commit; push/read back before the next commit, then close/read back its issue. Preserve partial ranges on their phase branch. No implementation task is complete yet.
+Before a phase starts, require its authorized range, accepted/published integrated preparation, current QC, predecessor integration/release and verified phase tracking. Keep one task's result/evidence/initial checkbox in one commit; push/read back before the next commit, then close/read back its issue. Preserve partial ranges on their phase branch. Verified task outcomes are recorded in their owning commits and phase reports.
 
 Boundary tasks marked **Milestone exit** own whole-milestone code review, required tests/blocker repairs, committed milestone report and HANDOFF in their completion commit. They depend on all earlier tasks in that milestone. Each **Phase review** waits for its delivery milestones/issue closures and owns cross-capability review, required checks/repairs, phase report/HANDOFF, version, complete release notes and static package readiness. Reports include findings and TODOs (`None` when empty), with provenance for deferred non-critical issues; contract violations block completion.
 
@@ -81,18 +81,18 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 
 ## Phase 4 — Session configuration
 
-- [ ] Phase 4 — Session configuration
-    - [ ] Milestone 4.1 — Configurable session
-        - [ ] T-013 — Define six settings and live locking-policy application
+- [x] Phase 4 — Session configuration
+    - [x] Milestone 4.1 — Configurable session
+        - [x] T-013 — Define six settings and live locking-policy application
             Scope: app/settings.ts, initial settings-transaction.ts memory port, domain rule application and unit tests. Produce one descriptor catalogue with exact key/domain/default/wire strings; add failed-down and immediate hard-drop policies and accepted live-change semantics.
             Depends on: T-012 and verified phase-3 integration/release.
             Evidence: every domain/default, invalid values, disabled Hold/drop preserving state, both lock policies and zero-distance drops, changed versus unchanged policy contact timing, paused changes and active penetrator preservation. Session-only values; no browser storage claims.
-        - [ ] T-014 — Deliver settings controls and centered optional panels
+        - [x] T-014 — Deliver settings controls and centered optional panels
             Scope: UI settings/help controls, controller/view model/styles and e2e tests. Render six labeled values, separate settings/help toggles above Pause/Start, minimum-width responsive surface and stable board anchor. Keep transfer buttons and leaderboard capability absent until delivered.
             Depends on: T-013.
             Evidence: native interaction with each value, feature keys in form fields versus gameplay focus, settings/help combinations, no overlap, board center within one CSS pixel at supported sizes and scrolling below minimum; reload defaults and prior gameplay regressions. Milestone exit: review 4.1, demonstrate controls, docs/dev/reports/phases/4/4.1.md and HANDOFF.
-    - [ ] Milestone 4.2 — Phase review
-        - [ ] T-015 — Review, test and report session configuration
+    - [x] Milestone 4.2 — Phase review
+        - [x] T-015 — Review, test and report session configuration
             Depends on: T-014 and milestone 4.1 completion/verified closure.
             Evidence: PLAN phase-4 exits, all live-policy/disabled-feature interactions, both browsers, labels/help and build; prepare 0.4.0/RELEASE-NOTES, docs/dev/reports/phases/4/PHASE-REPORT.md and HANDOFF.
 

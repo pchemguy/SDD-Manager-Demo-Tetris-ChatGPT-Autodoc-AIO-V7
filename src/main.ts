@@ -1,4 +1,5 @@
 import './ui/styles.css';
+import {SETTING_KEYS,decodeSetting,type SettingsKey} from './app/settings';
 import {Controller} from './app/controller';
 import {createPanels,renderPanels} from './ui/panels';
 import {paint} from './ui/board';
@@ -10,11 +11,15 @@ const ui=createPanels(),controller=new Controller(freshSeed,()=>{previous=monoto
 function advanceTo(now:number){const current=Math.max(now,previous),ms=current-previous;previous=current;input.advance(ms);}
 const input=bindInput(ui.canvas,controller,()=>advanceTo(monotonic()));
 ui.start.addEventListener('click',()=>{controller.command('start');input.clear();ui.canvas.focus();});
+ui.settings.addEventListener('change',event=>{
+ const target=event.target;if(!(target instanceof HTMLSelectElement))return;const key=target.dataset.setting as SettingsKey;if(!SETTING_KEYS.includes(key))return;
+ try{const value=decodeSetting(key,target.value);controller.changeSettings({...controller.settings,[key]:value});input.clear();document.querySelector('#message')!.textContent='';}catch{document.querySelector('#message')!.textContent='Settings were not changed: invalid game setting.';}
+});
 let pointerPause=false;
 ui.pause.addEventListener('pointerdown',()=>{pointerPause=controller.state.status==='running';});
 ui.pause.addEventListener('pointercancel',()=>{pointerPause=false;});
 ui.pause.addEventListener('click',()=>{if(pointerPause)controller.pause();else controller.command('pause');pointerPause=false;input.clear();ui.canvas.focus();});
-function frame(now:number){advanceTo(now);paint(ui.canvas,controller.state);renderPanels(controller.state);frameId=requestAnimationFrame(frame);}
+function frame(now:number){advanceTo(now);paint(ui.canvas,controller.state,controller.settings.ghost);renderPanels(controller.state,controller.settings);frameId=requestAnimationFrame(frame);}
 frameId=requestAnimationFrame(frame);
 bindPageLifecycle(window,{pause:()=>controller.pause(),clear:input.clear,suspend:()=>cancelAnimationFrame(frameId),resume:()=>{previous=monotonic();frameId=requestAnimationFrame(frame);},dispose:input.dispose});
 if(import.meta.env.MODE==='test')Object.assign(window,{__tetris:controller});

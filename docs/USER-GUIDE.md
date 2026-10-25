@@ -1,15 +1,26 @@
 # Browser Tetris
 
-## Play a classic game
+## Play
 
 Serve the extracted static release over HTTP(S), or use the development commands in DEVELOPMENT. Choose Start game and focus the board. Left/right arrows move, Down soft-drops, Up/X rotates clockwise and Z counterclockwise. P pauses/resumes; R starts a fresh game. Pause/Resume and Restart buttons provide the same actions.
 
-Complete horizontal rows to clear them. One/two/three/four rows award 100/300/500/800 times the level before clearing. Soft drop awards one point per cell. Every ten cleared lines raises the level and increases gravity. A grounded piece waits one full gravity interval before locking; grounded moves do not extend that time, but becoming airborne starts a fresh interval on recontact.
+Complete horizontal rows to clear them. One/two/three/four rows award 100/300/500/800 times the level before clearing. Soft drop awards one point per cell. Every ten cleared lines raises the level and increases gravity. By default, a grounded piece waits one full gravity interval before locking; grounded moves do not extend that time, but becoming airborne starts a fresh interval on recontact.
 
-Moving focus away or hiding the tab pauses play; resume explicitly. Long frame gaps also pause instead of catching up unexpectedly. Restart abandons an unfinished game. The game uses seven-bag randomization. Press C to Hold once per active piece; the next piece and held kind are shown beside the board. Swapping restores the incoming piece to its spawn orientation. Settings, leaderboard and file transfer remain planned increments.
+Moving focus away or hiding the tab pauses play; resume explicitly. Long frame gaps also pause instead of catching up unexpectedly. Restart abandons an unfinished game. The game uses seven-bag randomization. Press C to Hold once per active piece; the next piece and held kind are shown beside the board. Swapping restores the incoming piece to its spawn orientation. Leaderboard and file transfer remain planned increments.
 
 At widths below 1280 CSS pixels the minimum-width game surface scrolls; the board stays centered in that surface. At supported desktop widths it stays centered in the viewport.
 
-Modern play uses ordered SRS wall/floor kicks. Space hard-drops to the outlined ghost destination and awards two points per row. The ghost hides if any destination cell is above row 10. Hard drop waits one full gravity interval to lock; repeated drops or grounded moves do not extend that deadline.
+Modern play uses ordered SRS wall/floor kicks. Space hard-drops to the outlined ghost destination and awards two points per row. By default, the ghost hides if any destination cell is above row 10. Default hard drop waits one full gravity interval to lock; repeated drops or grounded moves do not extend that deadline.
 
 Clear four rows at once to earn one ⚡ penetrator bonus (maximum three). Press V when the falling piece is wholly visible to spend one. The piece turns white and passes through occupied cells until it locks. Its ghost and hard drop find the lowest empty destination even below blockers. Hold is unavailable while penetrating; settled blocks are preserved. New games clear bonuses.
+
+## Settings and panels
+
+Use the individual settings and controls/help toggle buttons above Pause and Start/Restart. The board stays centered and game information stays visible. Changing a setting takes effect without restarting; moving keyboard focus into controls pauses play until you resume.
+
+- Ghost visibility: always hide, hide when any destination cell is above row 10, or always show.
+- Hard drop, next-piece preview and Hold: turn each on or off. Disabled keys are ignored; held state and the next queue are preserved.
+- Hard-drop locking: follow general locking, or lock immediately on Space, even at zero distance.
+- General locking: lock on the next failed downward attempt, or one full gravity interval after contact. Arrival by a follow-policy hard drop is not a failed downward attempt.
+
+Only changing the general locking policy reevaluates contact timing. Keeping that policy preserves an existing deadline; switching to interval while grounded starts a full new interval. Hard-drop policy changes affect subsequent drops. These settings survive game restarts but reset on page reload in this session-only increment. Cookie/URL persistence is the next increment.
