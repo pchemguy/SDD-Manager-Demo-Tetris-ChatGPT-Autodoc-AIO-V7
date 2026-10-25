@@ -2,7 +2,7 @@
 
 ## Current gate
 
-Ready for strategy only. Physical placement is pending DOCS-007; TASKS generation remains blocked until combined PLAN/layout review. This is per-document QC, not whole-package QC or implementation evidence.
+Ready for combined PLAN/layout derivation of TASKS after Revision 1. The initial strategy-only assessment is retained below; physical ownership has been checked against design and delivery. This is per-document QC, not whole-package QC or implementation evidence.
 
 ## Reviewed and governing state
 
@@ -38,3 +38,9 @@ R-BASE is delivered in phase 1; R-MOD in 2 with alternative policies in 4; R-PEN
 No confirmed unresolved strategy finding. Compared the accepted SPEC/design requirements with phase inclusions/exclusions, predecessor dependencies, meaningful demonstrations, milestone/phase review obligations and per-phase release sequence. Initial scope is a playable game. Later phase boundaries preserve prior working behavior. Folded milestone reviews and mandatory final phase review are explicit. Release preparation precedes integration; publication follows verified default-branch/tag boundaries. No implicit implementation range or browser evidence is inferred.
 
 Heading spacing and local navigation checked. Layout is intentionally not yet authored at this staged strategy gate; it is required for combined readiness and cannot be waived by this report. No tests, browser installation, release or application build ran for this plan review.
+
+## Revision 1 — Combined PLAN/layout review
+
+Reviewed layout.md SHA-256 `36f32a74535b20879a61ed5de5c4cb58cd19c0982ad53462d69db9e3f781abaf`; PLAN and all previously listed governing input identities are unchanged. Mapped each D/A/P/T/B component to source, unit/integration/native-browser checks, fixtures, user/developer docs and release artifacts. The single landing owner and mutation coordinator remain physically discoverable, and the intended dependency direction has no forced cycle. Seven phase/milestone routes have corresponding homes; schema packaging has one canonical source.
+
+Assessed generated/credential exclusion, dedicated browser binary/state ownership, production worker/WASM module URL/base-path loading, finite runner lifecycle, CI and version/notes/static archive responsibilities. Intended commands are explicitly unverified until implementation. No missing physical owner or confirmed conformance defect was found; no PLAN scope change was needed. Heading/local-link checks passed. Combined readiness applies only to task derivation; it does not establish package QC, browser availability or implementation eligibility.
