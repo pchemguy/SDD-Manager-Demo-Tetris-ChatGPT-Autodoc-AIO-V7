@@ -21,7 +21,7 @@ let pointerPause=false;
 ui.pause.addEventListener('pointerdown',()=>{pointerPause=controller.state.status==='running';});
 ui.pause.addEventListener('pointercancel',()=>{pointerPause=false;});
 ui.pause.addEventListener('click',()=>{if(pointerPause)controller.pause();else controller.command('pause');pointerPause=false;input.clear();ui.canvas.focus();});
-function frame(now:number){advanceTo(now);paint(ui.canvas,controller.state,controller.settings.ghost);renderPanels(controller.state,controller.settings,controller.persistenceBlocked);frameId=requestAnimationFrame(frame);}
+function frame(now:number){advanceTo(now);paint(ui.canvas,controller.state,controller.settings.ghost);renderPanels(controller.state,controller.settings,controller.persistenceBlocked,controller.results);frameId=requestAnimationFrame(frame);}
 frameId=requestAnimationFrame(frame);
 bindPageLifecycle(window,{pause:()=>controller.pause(),clear:input.clear,suspend:()=>cancelAnimationFrame(frameId),resume:()=>{previous=monotonic();frameId=requestAnimationFrame(frame);},dispose:input.dispose});
 if(import.meta.env.MODE==='test')Object.assign(window,{__tetris:controller});
