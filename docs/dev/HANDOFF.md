@@ -1,6 +1,6 @@
 # Project handoff
 
-Checkpoint: phase 4 entry; T-013 in progress.
+Checkpoint: milestone 4.1 local acceptance complete in T-014; phase review next.
 
 ## Authority and source
 
@@ -12,4 +12,4 @@ Working phase/4-session-configuration branches from main release commit e1b1eb0a
 
 ## Next boundary
 
-Implement six-setting catalogue, live rule changes and memory publication; then settings/help panels and whole-milestone review in T-014. T-015 prepares phase review/version/package before integration/release0.4.0. Persistence is phase 5. Each task requires atomic result/evidence/checkbox, exact-ref publication and issue closure before dependent work. Continue the full authorized range through 1.0.0 unless a required gate blocks.
+See reports/phases/4/4.1.md for accepted settings, layout and resolved Help finding. Publish/close T-014 and milestone 8. T-015 prepares phase review/version/package before integration/release0.4.0. Persistence is phase 5. Each task requires atomic result/evidence/checkbox, exact-ref publication and issue closure before dependent work. Continue the full authorized range through 1.0.0 unless a required gate blocks.
