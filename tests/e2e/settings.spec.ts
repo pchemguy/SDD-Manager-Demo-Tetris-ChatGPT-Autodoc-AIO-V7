@@ -16,10 +16,11 @@ test('settings/help toggles preserve a centered board and required information a
  }
  await page.setViewportSize({width:900,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeGreaterThanOrEqual(1280);
 });
-test('every setting choice is usable and this session-only increment reloads defaults',async({page})=>{
+test('every setting choice is usable and reload retains selected values',async({page})=>{
  await page.goto('/');const choices=[['Ghost visibility',['hide','dynamic','show'],'dynamic'],['Hard drop',['on','off'],'on'],['Next-piece preview',['on','off'],'on'],['Hard-drop locking',['follow','immediate'],'follow'],['General locking',['interval','failedDown'],'interval'],['Hold piece',['on','off'],'on']] as const;
+ for(const [label,,value] of choices)await expect(page.getByLabel(label,{exact:true})).toHaveValue(value);
  for(const [label,values] of choices){const field=page.getByLabel(label,{exact:true});await field.focus();for(const value of values){await field.selectOption(value);await expect(field).toHaveValue(value);}}
- await expect(page.locator('#help-hold')).toHaveText('Hold (off)');await expect(page.locator('#help-drop')).toHaveText('Hard drop (off)');await page.reload();for(const [label,,value] of choices)await expect(page.getByLabel(label,{exact:true})).toHaveValue(value);
+ await expect(page.locator('#help-hold')).toHaveText('Hold (off)');await expect(page.locator('#help-drop')).toHaveText('Hard drop (off)');await page.reload();for(const [label,values] of choices)await expect(page.getByLabel(label,{exact:true})).toHaveValue(values.at(-1)!);
 });
 test('native selected immediate and failed-down policies change locking behavior',async({page})=>{
  await page.goto('/');await page.getByLabel('Hard-drop locking',{exact:true}).selectOption('immediate');await page.getByRole('button',{name:'Start game',exact:true}).click();let next=await page.getByTestId('next-kind').textContent();await page.keyboard.press('Space');await expect(page.getByTestId('next-kind')).not.toHaveText(next!);

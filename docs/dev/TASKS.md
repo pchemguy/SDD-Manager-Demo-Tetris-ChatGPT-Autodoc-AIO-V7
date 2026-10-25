@@ -98,18 +98,18 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 
 ## Phase 5 — Persistent configuration
 
-- [ ] Phase 5 — Persistent configuration
-    - [ ] Milestone 5.1 — Persistent settings
-        - [ ] T-016 — Implement independent URL and cookie source resolution
+- [x] Phase 5 — Persistent configuration
+    - [x] Milestone 5.1 — Persistent settings
+        - [x] T-016 — Implement independent URL and cookie source resolution
             Scope: app/settings.ts and platform/preferences.ts with controlled adapter tests. Produce exact managed-cookie/query capture, safe wire decoding, source selection and source-specific warnings; preserve unknown parameters/fragment.
             Depends on: T-015 and verified phase-4 integration/release.
             Evidence: every key with valid/invalid/missing/conflicting sources, duplicate/empty/case-sensitive query values, explicit default, missing parameter retaining cookie and malformed cookie fallback. Adapter operations are separately testable from application mutation.
-        - [ ] T-017 — Integrate persistent changes, readback and rollback
+        - [x] T-017 — Integrate persistent changes, readback and rollback
             Scope: settings-transaction/controller/preferences, startup resolution and persistent-context e2e tests/docs. Consume T-016 resolution and add canonical cookie/query writes for explicit URL and user changes, serialized capture/readback/rollback and clear denied-storage messages.
             Depends on: T-016.
             Evidence: six-key native reload matrix, omission/default semantics, no unmanaged value loss, cookie flags, failure at every managed write/history step and verified exact rollback; no reset on unchanged policy. Both browsers retain earlier gameplay/layout checks. Milestone exit: review 5.1, demonstrate URL sharing/cookie recovery, docs/dev/reports/phases/5/5.1.md and HANDOFF.
-    - [ ] Milestone 5.2 — Phase review
-        - [ ] T-018 — Review, test and report persistent settings
+    - [x] Milestone 5.2 — Phase review
+        - [x] T-018 — Review, test and report persistent settings
             Depends on: T-017 and milestone 5.1 completion/verified closure.
             Evidence: PLAN phase-5 exits, source/write failure distinctions and cumulative native regressions, both browsers/build; prepare 0.5.0/RELEASE-NOTES, docs/dev/reports/phases/5/PHASE-REPORT.md and HANDOFF.
 

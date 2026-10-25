@@ -19,3 +19,16 @@ export function validateSettings(value:unknown):value is Settings{
 }
 export function wire(value:Settings[SettingsKey]):string{return typeof value==='boolean'?(value?'on':'off'):value;}
 export function decodeSetting(key:SettingsKey,value:string):Settings[SettingsKey]|undefined{return (DESCRIPTORS[key].values as readonly Settings[SettingsKey][]).find(v=>wire(v)===value);}
+export type ResolvedSettings={settings:Settings;sources:Record<SettingsKey,'url'|'cookie'|'default'>;explicit:SettingsKey[];warnings:string[]};
+export function resolveSettings(url:string,cookies:Partial<Record<SettingsKey,string>>):ResolvedSettings{
+ const query=new URL(url).searchParams,result:ResolvedSettings={settings:{...DEFAULT_SETTINGS},sources:Object.fromEntries(SETTING_KEYS.map(k=>[k,'default'])) as ResolvedSettings['sources'],explicit:[],warnings:[]};
+ for(const key of SETTING_KEYS){
+  const values=query.getAll(key),urlValue=values.length===1?decodeSetting(key,values[0]):undefined;
+  if(urlValue!==undefined){Object.assign(result.settings,{[key]:urlValue});result.sources[key]='url';result.explicit.push(key);continue;}
+  let saved:Settings[SettingsKey]|undefined;const raw=cookies[key];
+  if(raw!==undefined)try{saved=decodeSetting(key,decodeURIComponent(raw));}catch{/* Malformed cookie is invalid only for this setting. */}
+  if(saved!==undefined){Object.assign(result.settings,{[key]:saved});result.sources[key]='cookie';}
+  if(values.length>0||raw!==undefined&&saved===undefined)result.warnings.push(`${key}: invalid ${values.length>0?'URL':''}${values.length>0&&raw!==undefined&&saved===undefined?' and ':''}${raw!==undefined&&saved===undefined?'cookie':''} value; using ${result.sources[key]}.`);
+ }
+ return result;
+}
