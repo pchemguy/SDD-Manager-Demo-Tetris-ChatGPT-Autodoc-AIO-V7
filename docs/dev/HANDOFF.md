@@ -1,6 +1,6 @@
 # Project handoff
 
-Checkpoint: phase 3 entry; T-010 in progress.
+Checkpoint: milestone 3.1 local acceptance complete in T-011; phase review next.
 
 ## Authority and source
 
@@ -14,4 +14,4 @@ Working phase/3-penetrator-gameplay branches from main release commit fb9402e297
 
 ## Next boundary
 
-Implement T-010 traversal/bonuses, T-011 native controls/rendering and whole-milestone review, then T-012 phase review/package. Each verified task has atomic result/evidence/checkbox commit, exact-ref publication and issue closure before dependent work. Integrate and publish 0.3.0 before phase 4. Continue the full authorized range; stop only on a required unresolved gate or complete 1.0.0 publication.
+See reports/phases/3/3.1.md for completed ability/review evidence. Publish/close T-011 and milestone 6, then execute T-012 phase review/package. Each verified task has atomic result/evidence/checkbox commit, exact-ref publication and issue closure before dependent work. Integrate and publish 0.3.0 before phase 4. Continue the full authorized range; stop only on a required unresolved gate or complete 1.0.0 publication.
