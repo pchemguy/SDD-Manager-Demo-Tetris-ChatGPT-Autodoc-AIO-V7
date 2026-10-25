@@ -23,4 +23,21 @@ Use the individual settings and controls/help toggle buttons above Pause and Sta
 - Hard-drop locking: follow general locking, or lock immediately on Space, even at zero distance.
 - General locking: lock on the next failed downward attempt, or one full gravity interval after contact. Arrival by a follow-policy hard drop is not a failed downward attempt.
 
-Only changing the general locking policy reevaluates contact timing. Keeping that policy preserves an existing deadline; switching to interval while grounded starts a full new interval. Hard-drop policy changes affect subsequent drops. These settings survive game restarts but reset on page reload in this session-only increment. Cookie/URL persistence is the next increment.
+Only changing the general locking policy reevaluates contact timing. Keeping that policy preserves an existing deadline; switching to interval while grounded starts a full new interval. Hard-drop policy changes affect subsequent drops. Settings survive game restarts, reloads and reopening the game. Each valid URL value overrides its saved cookie independently; an omitted parameter retains the cookie, then the default applies only if neither supplies a valid value.
+
+## Remember and share settings
+
+Changing a setting saves a cookie for one year and updates that setting’s URL parameter without reloading. Copy the URL to share explicit choices. A valid explicit URL value is saved even if it equals the default; omitted parameters do not erase saved values. Invalid or repeated parameters fall back to the saved value/default with a warning.
+
+| Parameter | Values | Default |
+| --- | --- | --- |
+| ghost | hide, dynamic, show | dynamic |
+| hardDrop | on, off | on |
+| nextPreview | on, off | on |
+| hardDropLock | follow, immediate | follow |
+| lockPolicy | failedDown, interval | interval |
+| hold | on, off | on |
+
+For example, `?ghost=show&hardDropLock=immediate` sets only those two values. Other saved settings remain effective. Cookies belong to the serving site; unrelated query values and the URL fragment are retained.
+
+If cookies or URL replacement are refused, the game reports the failure, restores prior external values where allowed and keeps effective settings unchanged. If the browser also refuses recovery, the error says recovery is incomplete and settings controls are disabled until you repair access and reload. Initial in-memory settings remain playable in a denied-storage environment.

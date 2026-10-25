@@ -1,6 +1,6 @@
 # Project handoff
 
-Checkpoint: phase 5 entry; T-016 in progress.
+Checkpoint: milestone 5.1 local acceptance complete in T-017; phase review next.
 
 ## Authority and source
 
@@ -12,4 +12,4 @@ Working phase/5-persistent-configuration branches from main release commit 4ce93
 
 ## Next boundary
 
-T-016 provides pure independent source resolution and narrow preference effects, not startup integration. T-017 adds verified persistence transactions, failure rollback and native reload/profile acceptance with milestone review. T-018 prepares phase review/version0.5.0/package before integration/publication. Each task requires atomic result/evidence/checkbox, exact-ref publication and issue closure before dependencies. Continue the authorized complete range unless a required unresolved gate blocks.
+See reports/phases/5/5.1.md for completed persistence, review and failure/profile evidence. Publish/close T-017 and milestone 10. T-018 prepares phase review/version0.5.0/package before integration/publication. Each task requires atomic result/evidence/checkbox, exact-ref publication and issue closure before dependencies. Continue the authorized complete range unless a required unresolved gate blocks.
