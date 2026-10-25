@@ -1,6 +1,6 @@
 # Project handoff
 
-Checkpoint: milestone 5.1 local acceptance complete in T-017; phase review next.
+Checkpoint: phase 5 acceptance and 0.5.0 package preparation complete in T-018; integration/release pending.
 
 ## Authority and source
 
@@ -12,4 +12,4 @@ Working phase/5-persistent-configuration branches from main release commit 4ce93
 
 ## Next boundary
 
-See reports/phases/5/5.1.md for completed persistence, review and failure/profile evidence. Publish/close T-017 and milestone 10. T-018 prepares phase review/version0.5.0/package before integration/publication. Each task requires atomic result/evidence/checkbox, exact-ref publication and issue closure before dependencies. Continue the authorized complete range unless a required unresolved gate blocks.
+See reports/phases/5/PHASE-REPORT.md for cumulative acceptance. Publish/close T-018 and milestone 11, then integrate/publish 0.5.0 before phase 6. Each task requires atomic result/evidence/checkbox, exact-ref publication and issue closure before dependencies. Continue the authorized complete range unless a required unresolved gate blocks.
