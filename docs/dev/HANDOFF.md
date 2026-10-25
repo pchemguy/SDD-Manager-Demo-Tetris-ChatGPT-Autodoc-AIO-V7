@@ -1,19 +1,15 @@
 # Project handoff
 
-Checkpoint: phase 4 acceptance and 0.4.0 package preparation complete in T-015; integration/release pending.
+Checkpoint: phase 5 entry; T-016 in progress.
 
 ## Authority and source
 
-User authorized QC and full T-001–T-027 implementation with integrated per-phase releases. Phase 3 is published as v0.3.0 at e1b1eb0a74e363305988ca710d52c17ffa082381; tag, notes, latest state, asset hashes and downloaded bytes verified. Prior reports remain under reports/phases/1–3. [SPEC](SPEC.md), [PLAN](PLAN.md), [TASKS](TASKS.md) and [layout](layout.md) govern the work.
+User authorized QC and full T-001–T-027 implementation, integrated per-phase releases through 1.0.0. Phase 4 is published as v0.4.0 at 4ce93be0f27806c1533ac2cbcee8f7a69e7a9987; annotated tag/body, latest state, asset hashes and downloaded bytes verified. Prior reports remain under reports/phases/1–4. [SPEC](SPEC.md), [PLAN](PLAN.md), [TASKS](TASKS.md) and [layout](layout.md) govern work.
 
 ## Branch and tracking
 
-Working phase/4-session-configuration branches from main release commit e1b1eb0a74e363305988ca710d52c17ffa082381; integration target main; no suspended parent. Phase label sdd-phase-4-Session-configuration, milestones 8 (4.1) and 9 (4.2), issues 22–24 for T-013–T-015 verified before task edits. Browser recovery remains documented in DEVELOPMENT.
+Working phase/5-persistent-configuration branches from main release commit 4ce93be0f27806c1533ac2cbcee8f7a69e7a9987; target main; no suspended parent. Verified label sdd-phase-5-Persistent-configuration, milestones 10 (5.1) and 11 (5.2), issues 25–27 for T-016–T-018 before task edits. Browser recovery remains documented in DEVELOPMENT.
 
 ## Next boundary
 
-See reports/phases/4/PHASE-REPORT.md for cumulative acceptance. Publish/close T-015 and milestone 9, then integrate/publish 0.4.0. Persistence is phase 5. Each task requires atomic result/evidence/checkbox, exact-ref publication and issue closure before dependent work. Continue the full authorized range through 1.0.0 unless a required gate blocks.
-
-## Integration boundary
-
-Phase 4 source 269c10281144ab23a30187a31338b5fa16e46f1f is integrated with default parent e1b1eb0a74e363305988ca710d52c17ffa082381. Full phase verification and task/hosted closure preceded this merge. Publish/read back default, then create the matching release commit/tag and verify GitHub body/assets before activating the next phase.
+T-016 provides pure independent source resolution and narrow preference effects, not startup integration. T-017 adds verified persistence transactions, failure rollback and native reload/profile acceptance with milestone review. T-018 prepares phase review/version0.5.0/package before integration/publication. Each task requires atomic result/evidence/checkbox, exact-ref publication and issue closure before dependencies. Continue the authorized complete range unless a required unresolved gate blocks.

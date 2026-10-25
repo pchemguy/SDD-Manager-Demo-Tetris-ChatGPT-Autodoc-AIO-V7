@@ -100,7 +100,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 
 - [ ] Phase 5 — Persistent configuration
     - [ ] Milestone 5.1 — Persistent settings
-        - [ ] T-016 — Implement independent URL and cookie source resolution
+        - [x] T-016 — Implement independent URL and cookie source resolution
             Scope: app/settings.ts and platform/preferences.ts with controlled adapter tests. Produce exact managed-cookie/query capture, safe wire decoding, source selection and source-specific warnings; preserve unknown parameters/fragment.
             Depends on: T-015 and verified phase-4 integration/release.
             Evidence: every key with valid/invalid/missing/conflicting sources, duplicate/empty/case-sensitive query values, explicit default, missing parameter retaining cookie and malformed cookie fallback. Adapter operations are separately testable from application mutation.
