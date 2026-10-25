@@ -47,4 +47,4 @@ One complete-scope preparation pass. No later scope passes are inferred. The pro
 
 ## Pending transitions
 
-Publish/read back DOCS-003, then close/read back its issue 3. Continue only through DOCS-008 in dependency order. DOCS-009, preparation integration and implementation remain unselected. Recover actual prior publication/closure from Git and provider state; per-document completion does not prove subsequent effects.
+Publish/read back DOCS-004, then close/read back its issue 4. Continue only through DOCS-008 in dependency order. DOCS-009, preparation integration and implementation remain unselected. Recover actual prior publication/closure from Git and provider state; per-document completion does not prove subsequent effects.
