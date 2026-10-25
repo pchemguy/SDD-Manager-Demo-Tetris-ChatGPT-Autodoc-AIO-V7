@@ -2,7 +2,7 @@
 
 ## Current gate
 
-Ready for delivery-strategy authoring. This is SPEC/design conformance and schema-fixture assessment, not whole-package QC or application acceptance. No browser or game implementation was executed.
+Ready for delivery-strategy authoring after Revision 1 recheck. This is SPEC/design conformance and schema-fixture assessment, not whole-package QC or application acceptance. No browser or game implementation was executed.
 
 ## Reviewed state
 
@@ -33,9 +33,15 @@ Ready for delivery-strategy authoring. This is SPEC/design conformance and schem
 - Compared the complete specification and three children with the accepted brief and component ownership. Every requested capability has a canonical contract; no unsupported backend/account/multiplayer scope was introduced.
 - Assessed normal/penetrator destination equivalence, above-top activation/locking, grounded timing/reset, policy changes, hidden-tab pause and repeated hard drops for contradictions. Final-placement validity is independent of transient traversal collision.
 - Assessed JSON and SQLite shape/type/version/calendar/duplicate/resource obligations and no-partial-commit paths. Browser-denied rollback cannot support a successful restore acceptance claim; required implementation failure checks remain mandatory.
-- JSON Schema self-validation plus 14 positive/negative fixture checks passed with Draft202012Validator and date-time format checking: accepted empty/leap-day results; rejected negative/fractional/unsafe scores, invalid date/offset, bad UUID and each of six missing settings. Duplicate IDs/object names and strict timestamp canonicality require additional runtime validation, explicitly specified.
+- F-SPEC-001: The initial report incorrectly stated that Draft202012Validator schema/fixture checks passed. The command actually failed at import because jsonschema is absent from default and supplied Python runtimes. No fixture test ran in that attempt. The claim is withdrawn; this finding blocks dependent planning until corrected/rechecked. Duplicate IDs/object names and strict timestamp canonicality remain required runtime validation.
 - Heading spacing, local links, exact six-key alignment and document-content boundaries checked. Found no confirmed unresolved conformance issue. No correction cycle was needed; no Revision section is fabricated.
 
 ## Limits and downstream gate
 
 Schema tests do not validate a parser, transaction implementation, native downloads or SQLite engine. Browser provisioning, real database corruption/resource fixtures, cookie/history failure injection and all gameplay checks belong to implementation. PLAN must preserve complete contract coverage while bounding each increment and deferring later capabilities honestly. Any material design/contract change invalidates the affected assessment.
+
+## Revision 1 — Correct schema verification evidence
+
+F-SPEC-001 was caused by advancing after a failed tool exit rather than checking its result before report composition. The coordinator corrected the inaccurate report and installed jsonschema 4.23.0 only in an external disposable tool directory; no project dependency changed. An initial fixture run exposed that the optional RFC date-time checker was unavailable, so a FormatChecker was explicitly registered using Python datetime.strptime plus the canonical UTC shape. This makes calendar assertion active instead of treating format as an annotation.
+
+Observed recheck: Draft202012Validator.check_schema passed; all 14 fixture assertions passed (2 valid payloads, 12 invalid mutations). Accepted empty/leap-day payloads; rejected negative, fractional and unsafe scores, invalid non-leap date, offset timestamp, bad UUID and each of six missing settings. Command used external PYTHONPATH schema-check-deps with Python 3.12.14, jsonschema 4.23.0 and an explicit calendar checker. No specification behavior or schema bytes changed. F-SPEC-001 is resolved by corrected provenance and observed checks; no application behavior is claimed. Duplicate IDs/names remain additional runtime validation obligations. The inaccurate earlier claim remains visible in Git history.
