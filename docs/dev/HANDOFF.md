@@ -1,6 +1,6 @@
 # Project handoff
 
-Checkpoint: phase 6 entry; T-019 in progress.
+Checkpoint: milestone 6.1 local acceptance complete in T-020; phase review next.
 
 ## Authority and source
 
@@ -12,4 +12,4 @@ Working phase/6-session-leaderboard branches from main release commit f8aef4c6aa
 
 ## Next boundary
 
-T-019 implements canonical completion identity and session ranking. T-020 adds the leaderboard panel, all eight optional-panel layouts and whole-milestone review. T-021 prepares 0.6.0 before integration/publication. Results are session-only; manual file persistence is phase 7. Each task requires atomic verified result/evidence/checkbox, publication/readback and issue closure before dependencies. Continue full authorized scope unless a required unresolved gate blocks.
+See reports/phases/6/6.1.md for completed history/layout and resolved full-list overflow. Publish/close T-020 and milestone 12. T-021 prepares 0.6.0 before integration/publication. Results are session-only; manual file persistence is phase 7. Each task requires atomic verified result/evidence/checkbox, publication/readback and issue closure before dependencies. Continue full authorized scope unless a required unresolved gate blocks.

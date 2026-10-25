@@ -8,7 +8,7 @@ Use Node 22.12+ (verified on Node 24). Run `npm ci`, then `npm run dev`, and ope
 
 ## Project scope
 
-The current game includes live settings and optional settings/help panels. Session leaderboard and JSON/SQLite transfer are planned in the [seven-phase plan](docs/dev/PLAN.md). Current task state and verified evidence are in [TASKS](docs/dev/TASKS.md) and [HANDOFF](docs/dev/HANDOFF.md).
+The current game includes live settings and optional settings/help panels. A session top-ten leaderboard is available. JSON/SQLite transfer is planned in the [seven-phase plan](docs/dev/PLAN.md). Current task state and verified evidence are in [TASKS](docs/dev/TASKS.md) and [HANDOFF](docs/dev/HANDOFF.md).
 
 - [Project brief](docs/dev/PROJECT.md), [behavioral specification](docs/dev/SPEC.md) and [JSON Schema](docs/dev/spec/SAVE-SCHEMA.json)
 - [Architecture](docs/dev/ARCHITECTURE.md), [components](docs/dev/DECOMPOSITION.md) and [layout](docs/dev/layout.md)

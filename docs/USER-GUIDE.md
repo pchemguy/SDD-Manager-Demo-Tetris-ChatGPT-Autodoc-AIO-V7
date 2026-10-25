@@ -6,7 +6,7 @@ Serve the extracted static release over HTTP(S), or use the development commands
 
 Complete horizontal rows to clear them. One/two/three/four rows award 100/300/500/800 times the level before clearing. Soft drop awards one point per cell. Every ten cleared lines raises the level and increases gravity. By default, a grounded piece waits one full gravity interval before locking; grounded moves do not extend that time, but becoming airborne starts a fresh interval on recontact.
 
-Moving focus away or hiding the tab pauses play; resume explicitly. Long frame gaps also pause instead of catching up unexpectedly. Restart abandons an unfinished game. The game uses seven-bag randomization. Press C to Hold once per active piece; the next piece and held kind are shown beside the board. Swapping restores the incoming piece to its spawn orientation. Leaderboard and file transfer remain planned increments.
+Moving focus away or hiding the tab pauses play; resume explicitly. Long frame gaps also pause instead of catching up unexpectedly. Restart abandons an unfinished game. The game uses seven-bag randomization. Press C to Hold once per active piece; the next piece and held kind are shown beside the board. Swapping restores the incoming piece to its spawn orientation. Manual file transfer remains a planned increment.
 
 At widths below 1280 CSS pixels the minimum-width game surface scrolls; the board stays centered in that surface. At supported desktop widths it stays centered in the viewport.
 
@@ -16,7 +16,7 @@ Clear four rows at once to earn one ⚡ penetrator bonus (maximum three). Press 
 
 ## Settings and panels
 
-Use the individual settings and controls/help toggle buttons above Pause and Start/Restart. The board stays centered and game information stays visible. Changing a setting takes effect without restarting; moving keyboard focus into controls pauses play until you resume.
+Use the individual leaderboard, settings and controls/help toggle buttons above Pause and Start/Restart. The board stays centered and game information stays visible. Changing a setting takes effect without restarting; moving keyboard focus into controls pauses play until you resume.
 
 - Ghost visibility: always hide, hide when any destination cell is above row 10, or always show.
 - Hard drop, next-piece preview and Hold: turn each on or off. Disabled keys are ignored; held state and the next queue are preserved.
@@ -41,3 +41,9 @@ Changing a setting saves a cookie for one year and updates that setting’s URL 
 For example, `?ghost=show&hardDropLock=immediate` sets only those two values. Other saved settings remain effective. Cookies belong to the serving site; unrelated query values and the URL fragment are retained.
 
 If cookies or URL replacement are refused, the game reports the failure, restores prior external values where allowed and keeps effective settings unchanged. If the browser also refuses recovery, the error says recovery is incomplete and settings controls are disabled until you repair access and reload. Initial in-memory settings remain playable in a denied-storage environment.
+
+## Session leaderboard
+
+The left panel lists the ten best completed games by score, with UTC completion times. Equal scores use earlier completion times, then stable result IDs. Zero-score completions count. Restart abandons an unfinished game and retains earlier completed results; repeated game-over input does not add duplicates. Reloading or opening a new page clears this session history while settings remain saved. Manual backup/restore is the next increment.
+
+The full list scrolls inside its panel so it does not overlap the game or footer. Use the leaderboard toggle above Pause to hide it; the board and game information remain visible.
