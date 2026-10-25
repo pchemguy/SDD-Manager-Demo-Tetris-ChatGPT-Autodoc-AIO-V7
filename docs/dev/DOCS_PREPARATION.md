@@ -4,7 +4,7 @@
 
 - Mode: autodoc/onepass, selected by the current user request.
 - Scope: the complete browser Tetris target supplied in this conversation, including portable JSON/SQLite saves and the five-panel layout. [PROJECT](PROJECT.md) retains the reviewable scope and proposed clarifications.
-- Approval basis: The user accepted the published PROJECT brief and proposed choices with “k” in direct reply to its approval request. Autodoc preapproves ARCHITECTURE through TASKS; their technical QC and publication remain required.
+- Approval basis: The user accepted the published PROJECT brief and proposed choices with “k” in direct reply to its approval request. Autodoc preapproves ARCHITECTURE through TASKS; their scoped technical QC has been performed as recorded below, with publication/closure reconciled through Git/provider readback.
 - Stop: after DOCS-008, before whole-package QC, documentation integration, or implementation.
 - Tracking: enabled for preparation and implementation by root AGENTS.md. The native sdd-docs-main milestone 1 and issues 1–9 were created from package definitions and read back with exact content/associations before repository modifications.
 - Publication: every owned commit is pushed and read back before progression.
@@ -25,6 +25,7 @@ One complete-scope preparation pass. No later scope passes are inferred. The pro
 | DOCS-005 | Complete contracts and child coverage checked against PROJECT/ARCHITECTURE/DECOMPOSITION. SPEC-REVIEW-REPORT.md Revision 1 resolves F-SPEC-001 after actual schema self-validation and 14 fixtures with explicit calendar checks; the earlier success claim was withdrawn. Scoped preapproval: autodoc after PROJECT acceptance. Content identity: SPEC.md SHA-256 e80881865b9b8f3b75bc6ac71c86d39352817d199b5153bb9ffb650ce90d35b4; spec/GAMEPLAY.md SHA-256 c70822208f1102c226629a14e1dbe850345c79007458285aae30b1564214de7e; spec/SETTINGS.md SHA-256 f3ef0dc34afee8df317d1181160dba4d6a05b430f293caddd07c8a6c39b2b600; spec/TRANSFER.md SHA-256 ac2137a47d574f8809c26c92f0a171044a87f262c6a2600ecb5a7d08fc80d087; spec/SAVE-SCHEMA.json SHA-256 427157da946929bf18483f9c1558368e5d33aac68cd597a7c1a76e1111c4fc23; SPEC-REVIEW-REPORT.md SHA-256 f168978c4ee9f8af8277917fe78008b858a6e8094f3f95e260ad74db8e905833. |
 | DOCS-006 | Plan seven bounded playable capability increments and release exits. Reviewed content: PLAN.md SHA-256 636835aa47532354a7889422aaad8b35e248282a93982d5dc15a1485f823a7d9; PLAN-REVIEW-REPORT.md SHA-256 34d2db79de594515e1ff7a8d6a5ed663775c15b07cd38dc12d375c36ad772203. Scoped preapproval: user-selected autodoc, after PROJECT approval. Markdown/link checks passed; commit publication and issue 6 closure/readback follow. |
 | DOCS-007 | Allocate components, tests, runtime assets and release artifacts. Reviewed content: layout.md SHA-256 36f32a74535b20879a61ed5de5c4cb58cd19c0982ad53462d69db9e3f781abaf; PLAN-REVIEW-REPORT.md SHA-256 1113355ccdc2b34a0d09f8b2321ccc0db48114538a4a4ae88032e9d9ceefc15e. Scoped preapproval: user-selected autodoc, after PROJECT approval. Markdown/link checks passed; commit publication and issue 7 closure/readback follow. |
+| DOCS-008 | Derive 27 executable tasks and record the autodoc stopping checkpoint. Reviewed content: TASKS.md SHA-256 50c538ead667d661ee7381a965e38480502d84d4012782acab6beb310473725e; TASKS-REVIEW-REPORT.md SHA-256 6e6bcbbb321556fb604836170fde1a210b6343a7eccfccca028043b5da7a42c5; HANDOFF.md SHA-256 1d31e6a0ac69d197aa14a9ad2cff3ed0242612ff9ce1510c0add3603cc73de21. Scoped preapproval: user-selected autodoc, after PROJECT approval. Markdown/link checks passed; commit publication and issue 8 closure/readback follow. |
 | DOCS-009 | Not selected: autodoc stops before package QC. |
 
 ## Initialization
@@ -54,4 +55,4 @@ The initial document-checkpoint helper replaced a grouped pending row once, then
 
 ## Pending transitions
 
-Publish/read back DOCS-007, then close/read back its issue 7. Continue only through DOCS-008 in dependency order. DOCS-009, preparation integration and implementation remain unselected. Recover actual prior publication/closure from Git and provider state; per-document completion does not prove subsequent effects.
+Publish/read back DOCS-008, then close/read back its issue 8. Continue only through DOCS-008 in dependency order. DOCS-009, preparation integration and implementation remain unselected. Recover actual prior publication/closure from Git and provider state; per-document completion does not prove subsequent effects.

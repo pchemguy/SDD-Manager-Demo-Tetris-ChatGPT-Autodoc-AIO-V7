@@ -43,3 +43,7 @@ Follow `sdd-manage`'s preparation and phase-activation workflows for required tr
 ## Project guidance
 
 Maintain project-specific navigation and validated setup/check commands here as they become established. Do not invent commands, paths, requirements or completion claims.
+
+## Project navigation
+
+See [HANDOFF](docs/dev/HANDOFF.md) for the current workflow and stopping boundary. [SPEC](docs/dev/SPEC.md) owns behavior; [PLAN](docs/dev/PLAN.md) and [TASKS](docs/dev/TASKS.md) own delivery and executable work. [layout](docs/dev/layout.md) distinguishes intended paths/commands from verified implementation.
