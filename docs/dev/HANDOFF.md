@@ -1,6 +1,6 @@
 # Project handoff
 
-Checkpoint: milestone 2.1 local acceptance complete in T-008; phase review next.
+Checkpoint: phase 2 acceptance and 0.2.0 package preparation complete in T-009; integration/release pending.
 
 ## Authority and source
 
@@ -16,4 +16,4 @@ Checkpoint: milestone 2.1 local acceptance complete in T-008; phase review next.
 
 ## Current work and next boundary
 
-T-006–T-008 implement modern aids; the independent reviewer rechecked repaired evidence gaps. See reports/phases/2/2.1.md. Publish/close T-008 and milestone 2.1, then execute T-009 phase review. Each task requires its own verified result/evidence/checkbox commit, push/readback and issue closure before dependent work. Existing isolated browser/Firefox recovery remains documented in DEVELOPMENT. Stop only at an unresolved required gate or after the authorized complete 1.0.0 release.
+See reports/phases/2/PHASE-REPORT.md for cumulative acceptance. Publish/close T-009 and milestone 2.2, then integrate and publish 0.2.0 before phase 3. Each task requires its own verified result/evidence/checkbox commit, push/readback and issue closure before dependent work. Existing isolated browser/Firefox recovery remains documented in DEVELOPMENT. Stop only at an unresolved required gate or after the authorized complete 1.0.0 release.

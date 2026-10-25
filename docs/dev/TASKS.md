@@ -43,7 +43,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 
 ## Phase 2 — Modern mechanics
 
-- [ ] Phase 2 — Modern mechanics
+- [x] Phase 2 — Modern mechanics
     - [x] Milestone 2.1 — Modern play aids
         - [x] T-006 — Add seven-bag, Hold and next preview
             Scope: domain randomizer/game, view model, Hold/next rendering and focused tests/docs. Consume baseline source/state interfaces; replace classic draws with seven-bag while preserving restart determinism and spawn/lifecycle contracts.
@@ -57,8 +57,8 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
             Scope: placement/game timing, input, Canvas and help; share one normal landing projector for ghost and hard drop. Enable default dynamic ghost and default follow-policy hard drop without a settings panel.
             Depends on: T-006, T-007.
             Evidence: exact row-10 boundary and straddles, concealed preview/ghost invariance, destination equality, drop score, zero-distance repeated drops and unextended grounded timer; native keyboard/Canvas checks and baseline regressions. Milestone exit: review 2.1 code, demonstrate modern aids, commit docs/dev/reports/phases/2/2.1.md and HANDOFF.
-    - [ ] Milestone 2.2 — Phase review
-        - [ ] T-009 — Review, test and report modern mechanics
+    - [x] Milestone 2.2 — Phase review
+        - [x] T-009 — Review, test and report modern mechanics
             Depends on: T-008 and milestone 2.1 completion/verified closure.
             Evidence: PLAN phase-2 exits, all modern interactions plus prior lifecycle/scoring, both browsers and production package; prepare 0.2.0/RELEASE-NOTES, docs/dev/reports/phases/2/PHASE-REPORT.md and HANDOFF.
 
