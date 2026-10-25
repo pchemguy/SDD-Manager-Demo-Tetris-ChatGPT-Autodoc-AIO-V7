@@ -115,7 +115,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 
 ## Phase 6 — Session leaderboard
 
-- [ ] Phase 6 — Session leaderboard
+- [x] Phase 6 — Session leaderboard
     - [x] Milestone 6.1 — Completed-game history
         - [x] T-019 — Record and rank completed games exactly once
             Scope: app/leaderboard.ts, controller completion consumption, platform identity/UTC clock and tests. Produce canonical stable-ID/timestamp/safe-score results and deterministic top-ten ranking; no automatic result persistence.
@@ -125,8 +125,8 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
             Scope: panels/view model/styles/help and native acceptance. Add ranked top-ten/empty state, leaderboard toggle above Pause/Start and the final five-panel order; use textual time/score values safely.
             Depends on: T-019.
             Evidence: visible ranking updates after game completion, session restart retention/reload clearing, all eight optional-panel combinations, required panels visible and board-centered measurements at supported sizes in both browsers. Milestone exit: review 6.1, demonstrate completed history, docs/dev/reports/phases/6/6.1.md and HANDOFF.
-    - [ ] Milestone 6.2 — Phase review
-        - [ ] T-021 — Review, test and report session leaderboard
+    - [x] Milestone 6.2 — Phase review
+        - [x] T-021 — Review, test and report session leaderboard
             Depends on: T-020 and milestone 6.1 completion/verified closure.
             Evidence: PLAN phase-6 exits, result lifecycle versus settings/bonus/game restart, full layout/native regressions and build; prepare 0.6.0/RELEASE-NOTES, docs/dev/reports/phases/6/PHASE-REPORT.md and HANDOFF.
 

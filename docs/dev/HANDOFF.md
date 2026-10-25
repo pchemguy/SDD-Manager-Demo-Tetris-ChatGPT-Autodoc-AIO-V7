@@ -1,6 +1,6 @@
 # Project handoff
 
-Checkpoint: milestone 6.1 local acceptance complete in T-020; phase review next.
+Checkpoint: phase 6 acceptance and 0.6.0 package preparation complete in T-021; integration/release pending.
 
 ## Authority and source
 
@@ -12,4 +12,4 @@ Working phase/6-session-leaderboard branches from main release commit f8aef4c6aa
 
 ## Next boundary
 
-See reports/phases/6/6.1.md for completed history/layout and resolved full-list overflow. Publish/close T-020 and milestone 12. T-021 prepares 0.6.0 before integration/publication. Results are session-only; manual file persistence is phase 7. Each task requires atomic verified result/evidence/checkbox, publication/readback and issue closure before dependencies. Continue full authorized scope unless a required unresolved gate blocks.
+See reports/phases/6/PHASE-REPORT.md for cumulative acceptance. Publish/close T-021 and milestone 13, then integrate/publish 0.6.0 before phase 7. Results are session-only; manual file persistence is phase 7. Each task requires atomic verified result/evidence/checkbox, publication/readback and issue closure before dependencies. Continue full authorized scope unless a required unresolved gate blocks.
