@@ -1,18 +1,27 @@
-import type {Game,Rotation} from './types';
+import type {Game,Rotation,Kind} from './types';
 import {emptyBoard,canPlace} from './placement';
 import {piece,cells} from './geometry';
-import {drawClassic} from './randomizer';
+import {landing} from './projection';
+import {kicks} from './kicks';
+import {nextBag} from './randomizer';
 import {contact,gravityInterval} from './timing';
 import {scoreFor,addScore} from './scoring';
 export function createGame(seed=1):Game {
- return {board:emptyBoard(),active:null,status:'idle',seed:seed>>>0||1,pieceSerial:0,score:0,lines:0,level:1,time:0,gravityAt:1000,lockAt:null,completion:0};
+ return {board:emptyBoard(),active:null,status:'idle',seed:seed>>>0||1,pieceSerial:0,score:0,lines:0,level:1,time:0,gravityAt:1000,lockAt:null,completion:0,bag:[],queue:[],held:null,holdUsed:false};
 }
 export function startGame(seed=1):Game{return spawn(createGame(seed));}
 function end(g:Game):Game{return g.status==='gameover'?g:{...g,active:null,status:'gameover',completion:g.completion+1,lockAt:null};}
-export function spawn(g:Game):Game {
- const draw=drawClassic(g.seed),active=piece(draw.kind);
- const next={...g,seed:draw.seed,pieceSerial:g.pieceSerial+1,active,gravityAt:g.time+gravityInterval(g.level),lockAt:null};
+function queued(g:Game):Game {
+ let seed=g.seed,bag=[...g.bag],queue=[...g.queue];
+ while(queue.length<2){const n=nextBag({seed,bag});seed=n.seed;bag=n.bag;queue.push(n.kind);}
+ return {...g,seed,bag,queue};
+}
+function spawnKind(g:Game,kind:Kind,holdUsed:boolean):Game {
+ const active=piece(kind),next={...g,pieceSerial:g.pieceSerial+1,active,holdUsed,gravityAt:g.time+gravityInterval(g.level),lockAt:null};
  return canPlace(g.board,active)?contact({...next,status:'running'}):end(next);
+}
+export function spawn(g:Game):Game {
+ const next=queued(g);return spawnKind({...next,queue:next.queue.slice(1)},next.queue[0],false);
 }
 export function move(g:Game,dx:number,dy:number):Game {
  if(g.status!=='running'||!g.active)return g;
@@ -22,7 +31,8 @@ export function move(g:Game,dx:number,dy:number):Game {
 export function rotate(g:Game,direction:1|-1):Game {
  if(g.status!=='running'||!g.active)return g;
  const active={...g.active,rotation:((g.active.rotation+direction+4)%4) as Rotation};
- return canPlace(g.board,active)?contact({...g,active}):g;
+ for(const [dx,dy] of kicks(active.kind,g.active.rotation,active.rotation)){const candidate={...active,x:active.x+dx,y:active.y+dy};if(canPlace(g.board,candidate))return contact({...g,active:candidate});}
+ return g;
 }
 export function softDrop(g:Game):Game {
  if(g.status!=='running'||!g.active)return g;
@@ -58,4 +68,15 @@ export function advance(input:Game,ms:number):Game {
   }else break;
  }
  return g;
+}
+
+export function hold(g:Game):Game {
+ if(g.status!=='running'||!g.active||g.holdUsed)return g;
+ const kind=g.active.kind;
+ if(g.held)return spawnKind({...g,held:kind},g.held,true);
+ return {...spawn({...g,held:kind,active:null}),holdUsed:true};
+}
+export function hardDrop(g:Game):Game{
+ if(g.status!=='running'||!g.active)return g;
+ const active=landing(g.board,g.active);return contact({...g,active,score:addScore(g.score,2*(active.y-g.active.y))});
 }
