@@ -13,7 +13,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 ## Phase 1 — Classic baseline
 
 - [ ] Phase 1 — Classic baseline
-    - [ ] Milestone 1.1 — Playable classic game
+    - [x] Milestone 1.1 — Playable classic game
         - [x] T-001 — Establish reproducible build and isolated browser harness
             Scope: package/lockfile, TypeScript/Vite/Vitest/Playwright configurations, CI, scripts/browser-env.mjs and run-browser-tests.mjs, DEVELOPMENT guidance and generated-path exclusions. Consume existing host/browser/shell policies; produce pinned commands and dedicated absolute browser path.
             Depends on: none; phase activation and preparation integration required.
@@ -29,10 +29,11 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
             Depends on: T-002.
             Evidence: R-BASE scoring/level boundaries, compaction, above-top lock, 999/1000 ms contact, frame partitioning, pause/resume, score saturation and unique completion; document baseline rule choices.
             Verified T-003: RED 7 lifecycle/timing failures with 6 earlier tests passing; GREEN 13/13 tests and typecheck. Exact contact boundary, grounded/airborne reset, simultaneous clears, pre-clear-level score, immutable boards, pause/lag, distinct frame partitions, saturation and single top-out completion covered.
-        - [ ] T-004 — Deliver playable classic interface and baseline package
+        - [x] T-004 — Deliver playable classic interface and baseline package
             Scope: src/app/controller.ts and view-model.ts, UI input/board/panels/styles, platform clock, bootstrap, e2e tests, USER-GUIDE and release-package script. Integrate T-002/T-003 into one frame/input lifecycle, centered board/game-info/help, Pause and Start/Restart. Exclude unimplemented feature controls; keep later panel space compatible with layout.
             Depends on: T-001, T-002, T-003.
             Evidence: native movement/rotation/soft drop, pause/blur/hidden-tab, game over/restart, readable score/level, Canvas pixels and centered board in both browsers through development and production server; repeated restart has one loop/listener set. Static package excludes secrets/caches. Milestone exit: review all 1.1 code, resolve blockers, demonstrate playable baseline, commit docs/dev/reports/phases/1/1.1.md and HANDOFF.
+            Verified T-004/milestone 1.1: independent source review findings repaired/rechecked; 19 unit tests, typecheck/build, dev 10/10, production 8 passed with 2 explicit fixture-only skips, native raster/focus/rotation/DPR/navigation and static ZIP validation. Report: docs/dev/reports/phases/1/1.1.md.
     - [ ] Milestone 1.2 — Phase review
         - [ ] T-005 — Review, test and report the classic baseline
             Depends on: T-004 and milestone 1.1 completion/verified closure.

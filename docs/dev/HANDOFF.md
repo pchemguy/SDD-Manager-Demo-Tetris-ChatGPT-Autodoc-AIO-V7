@@ -1,6 +1,6 @@
 # Project handoff
 
-Checkpoint: phase 1 initialization and verified T-001 build/browser harness.
+Checkpoint: milestone 1.1 playable classic game verified; T-004 publication and hosted closure pending.
 
 ## Authority and sources
 
@@ -16,6 +16,6 @@ Checkpoint: phase 1 initialization and verified T-001 build/browser harness.
 
 ## Verified outcome and next action
 
-T-001: exact-pinned build/toolchain and isolated browser harness verified by clean npm ci/typecheck/build, 2/2 development and 2/2 production native/raster tests (two context cycles each). Unit runner has no game tests yet. See [DEVELOPMENT](../DEVELOPMENT.md) for official-image digest/source recovery and diagnosed process-local Firefox content-sandbox workaround; no global/personal browser is used.
+T-001–T-004 are locally complete. See [milestone report](reports/phases/1/1.1.md): independent code review/repairs, 19 passing unit tests, typecheck/build, development 10/10 browser cases, production 8 passed/2 deliberate fixture-only skips, native raster/focus/rotation/DPR/navigation and package validation. No phase release yet.
 
-Publish/read back this task commit, then close/read back issue 10. Resume T-002 normal geometry/movement; later task/evidence/checkbox commits reconstruct progress without changing this snapshot every time. Missing required evidence remains a blocker. Final authorized boundary is verified full-scope 1.0.0 release.
+Publish/read back T-004 and close/read back issue 13; close/read back milestone 2 after all constituent issues are closed. Then T-005 performs the separate phase review, prepares 0.1.0/notes and package, and hands off verified integration/release. The full T-001–T-027 range remains authorized. Domain/gameplay and environment caveats are in the milestone report and DEVELOPMENT.
