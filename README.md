@@ -14,3 +14,5 @@ The current classic baseline is the first bounded increment. Remaining modern ai
 - [Architecture](docs/dev/ARCHITECTURE.md), [components](docs/dev/DECOMPOSITION.md) and [layout](docs/dev/layout.md)
 
 Development uses [SDD Manager](SDD-MANAGER.md). See the [AI-assisted development disclosure](AI_DISCLOSURE.md).
+
+Modern controls include SRS rotation and Space hard drop with a dynamic landing ghost.

@@ -1,5 +1,5 @@
 import type {Controller,Command} from '../app/controller';
-const MAP:Record<string,Command>={ArrowLeft:'left',ArrowRight:'right',ArrowDown:'down',ArrowUp:'cw',x:'cw',z:'ccw',p:'pause',r:'start',c:'hold'};
+const MAP:Record<string,Command>={ArrowLeft:'left',ArrowRight:'right',ArrowDown:'down',ArrowUp:'cw',x:'cw',z:'ccw',p:'pause',r:'start',c:'hold',' ':'drop'};
 export function bindInput(canvas:HTMLCanvasElement,c:Controller,beforeCommand=()=>{}){
  let order=0,serial=c.state.pieceSerial;
  const held=new Map<string,{order:number;next:number}>();

@@ -1,6 +1,7 @@
 import type {Game,Rotation,Kind} from './types';
 import {emptyBoard,canPlace} from './placement';
 import {piece,cells} from './geometry';
+import {landing} from './projection';
 import {kicks} from './kicks';
 import {nextBag} from './randomizer';
 import {contact,gravityInterval} from './timing';
@@ -74,4 +75,8 @@ export function hold(g:Game):Game {
  const kind=g.active.kind;
  if(g.held)return spawnKind({...g,held:kind},g.held,true);
  return {...spawn({...g,held:kind,active:null}),holdUsed:true};
+}
+export function hardDrop(g:Game):Game{
+ if(g.status!=='running'||!g.active)return g;
+ const active=landing(g.board,g.active);return contact({...g,active,score:addScore(g.score,2*(active.y-g.active.y))});
 }

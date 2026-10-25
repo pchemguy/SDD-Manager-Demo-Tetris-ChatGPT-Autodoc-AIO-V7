@@ -44,7 +44,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 ## Phase 2 — Modern mechanics
 
 - [ ] Phase 2 — Modern mechanics
-    - [ ] Milestone 2.1 — Modern play aids
+    - [x] Milestone 2.1 — Modern play aids
         - [x] T-006 — Add seven-bag, Hold and next preview
             Scope: domain randomizer/game, view model, Hold/next rendering and focused tests/docs. Consume baseline source/state interfaces; replace classic draws with seven-bag while preserving restart determinism and spawn/lifecycle contracts.
             Depends on: T-005 and verified phase-1 integration/release.
@@ -53,7 +53,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
             Scope: geometry/placement/game rotation and domain fixtures. Consume the canonical orientation/pivot definitions; produce first-legal-candidate rotation for both directions with exact screen-coordinate tables.
             Depends on: T-006.
             Evidence: I/JLSTZ wall/floor cases, candidate order, all candidates rejected, above-top normal poses, O invariance and no score/queue mutation from rejected rotation; relevant baseline regressions.
-        - [ ] T-008 — Integrate ghost projection and follow-policy hard drop
+        - [x] T-008 — Integrate ghost projection and follow-policy hard drop
             Scope: placement/game timing, input, Canvas and help; share one normal landing projector for ghost and hard drop. Enable default dynamic ghost and default follow-policy hard drop without a settings panel.
             Depends on: T-006, T-007.
             Evidence: exact row-10 boundary and straddles, concealed preview/ghost invariance, destination equality, drop score, zero-distance repeated drops and unextended grounded timer; native keyboard/Canvas checks and baseline regressions. Milestone exit: review 2.1 code, demonstrate modern aids, commit docs/dev/reports/phases/2/2.1.md and HANDOFF.
