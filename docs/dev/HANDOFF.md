@@ -1,6 +1,6 @@
 # Project handoff
 
-Checkpoint: milestone 4.1 local acceptance complete in T-014; phase review next.
+Checkpoint: phase 4 acceptance and 0.4.0 package preparation complete in T-015; integration/release pending.
 
 ## Authority and source
 
@@ -12,4 +12,4 @@ Working phase/4-session-configuration branches from main release commit e1b1eb0a
 
 ## Next boundary
 
-See reports/phases/4/4.1.md for accepted settings, layout and resolved Help finding. Publish/close T-014 and milestone 8. T-015 prepares phase review/version/package before integration/release0.4.0. Persistence is phase 5. Each task requires atomic result/evidence/checkbox, exact-ref publication and issue closure before dependent work. Continue the full authorized range through 1.0.0 unless a required gate blocks.
+See reports/phases/4/PHASE-REPORT.md for cumulative acceptance. Publish/close T-015 and milestone 9, then integrate/publish 0.4.0. Persistence is phase 5. Each task requires atomic result/evidence/checkbox, exact-ref publication and issue closure before dependent work. Continue the full authorized range through 1.0.0 unless a required gate blocks.

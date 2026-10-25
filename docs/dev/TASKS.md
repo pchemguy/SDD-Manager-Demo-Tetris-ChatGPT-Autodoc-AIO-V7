@@ -81,7 +81,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 
 ## Phase 4 — Session configuration
 
-- [ ] Phase 4 — Session configuration
+- [x] Phase 4 — Session configuration
     - [x] Milestone 4.1 — Configurable session
         - [x] T-013 — Define six settings and live locking-policy application
             Scope: app/settings.ts, initial settings-transaction.ts memory port, domain rule application and unit tests. Produce one descriptor catalogue with exact key/domain/default/wire strings; add failed-down and immediate hard-drop policies and accepted live-change semantics.
@@ -91,8 +91,8 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
             Scope: UI settings/help controls, controller/view model/styles and e2e tests. Render six labeled values, separate settings/help toggles above Pause/Start, minimum-width responsive surface and stable board anchor. Keep transfer buttons and leaderboard capability absent until delivered.
             Depends on: T-013.
             Evidence: native interaction with each value, feature keys in form fields versus gameplay focus, settings/help combinations, no overlap, board center within one CSS pixel at supported sizes and scrolling below minimum; reload defaults and prior gameplay regressions. Milestone exit: review 4.1, demonstrate controls, docs/dev/reports/phases/4/4.1.md and HANDOFF.
-    - [ ] Milestone 4.2 — Phase review
-        - [ ] T-015 — Review, test and report session configuration
+    - [x] Milestone 4.2 — Phase review
+        - [x] T-015 — Review, test and report session configuration
             Depends on: T-014 and milestone 4.1 completion/verified closure.
             Evidence: PLAN phase-4 exits, all live-policy/disabled-feature interactions, both browsers, labels/help and build; prepare 0.4.0/RELEASE-NOTES, docs/dev/reports/phases/4/PHASE-REPORT.md and HANDOFF.
 
