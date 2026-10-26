@@ -147,7 +147,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
             Scope: pinned SQLite dependency/lockfile, transfer/sqlite-host.ts and sqlite.worker.ts, Vite asset routing and production browser checks. Provide operation IDs, finite 10-second lifecycle, runtime initialization and disposal without application-state access.
             Depends on: T-023 and milestone 7.1 completion/verified closure.
             Evidence: actual packaged module-worker/WASM load under root and non-root production bases in both browsers; trusted empty-database operation, stale reply, timeout, startup error and cleanup. Do not expose a working SQLite format choice until T-026 integration.
-        - [ ] T-025 — Implement versioned SQLite schema and fixed-query codec
+        - [x] T-025 — Implement versioned SQLite schema and fixed-query codec
             Scope: transfer/sqlite.ts and worker command integration with corruption/schema/type fixtures. Consume T-022 canonical validator and T-024 worker; produce parameterized export and staged canonical decode with required metadata, integrity and allowlisted ordinary tables.
             Depends on: T-024.
             Evidence: zero/ten results and six unique settings; stable IDs/score/time; exact storage classes/column structure/metadata; corrupt/spoofed/truncated files, views/triggers/virtual tables/custom indexes, bad rows/keys and safe-integer boundaries. Imported SQL or schema code is never executed by an application command.
