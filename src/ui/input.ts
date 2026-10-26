@@ -1,3 +1,4 @@
+/** Focus-aware native input and active-time key repeats, ordered with simulation boundaries and cleared on lifecycle changes. */
 import type {Controller,Command} from '../app/controller';
 const MAP:Record<string,Command>={ArrowLeft:'left',ArrowRight:'right',ArrowDown:'down',ArrowUp:'cw',x:'cw',z:'ccw',p:'pause',r:'start',c:'hold',v:'penetrator',' ':'drop'};
 export function bindInput(canvas:HTMLCanvasElement,c:Controller,beforeCommand=()=>{}){

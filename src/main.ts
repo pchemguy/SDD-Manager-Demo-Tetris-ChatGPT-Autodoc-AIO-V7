@@ -1,3 +1,4 @@
+/** Browser composition root: wires game, input, rendering, preference recovery and serialized file operations. */
 import {TransferManager} from './app/transfer';
 import {portableCodecs} from './transfer/codecs';
 import {browserFiles,type FileFormat} from './platform/files';

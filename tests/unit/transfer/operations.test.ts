@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for operations. */
 import {it,expect,vi} from 'vitest';
 import {TransferManager,type Codecs} from '../../../src/app/transfer';
 import {DEFAULT_SETTINGS} from '../../../src/app/settings';

@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for leaderboard. */
 import {it,expect} from 'vitest';
 import {validTimestamp,isResult,rankResults,recordResult,type Result} from '../../../src/app/leaderboard';
 const result=(n:number,score=0,timestamp='2026-10-25T00:00:00.000Z'):Result=>({id:'00000000-0000-4000-8000-'+n.toString(16).padStart(12,'0'),score,timestamp});

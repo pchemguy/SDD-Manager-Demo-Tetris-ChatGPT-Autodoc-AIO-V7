@@ -1,3 +1,4 @@
+/** Native browser acceptance for settings. */
 import {test,expect} from '@playwright/test';
 test('six live controls apply without restart and keep form keys separate',async({page})=>{
  await page.goto('/');await expect(page.locator('#setting-fields').getByRole('combobox')).toHaveCount(6);await page.getByRole('button',{name:'Start game',exact:true}).click();await page.keyboard.press('ArrowDown');await expect(page.getByTestId('score')).toHaveText('000001');

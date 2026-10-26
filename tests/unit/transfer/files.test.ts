@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for files. */
 import {it,expect,vi,afterEach} from 'vitest';
 import {chooseFiles,download,detectFormat,readSelected} from '../../../src/platform/files';
 afterEach(()=>{vi.restoreAllMocks();vi.unstubAllGlobals();vi.useRealTimers();});

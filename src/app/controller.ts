@@ -1,3 +1,4 @@
+/** Application lifecycle owner: advances deterministic game state, coordinates preferences and publishes completed results once. */
 import {validateSnapshot} from '../transfer/validate';
 import type {Snapshot} from '../transfer/types';
 /** Coordinates commands, live preferences and one completed result per game; platform effects stay injected. */

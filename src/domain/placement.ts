@@ -1,3 +1,4 @@
+/** Classic board construction and bounds/collision predicates, permitting cells above the visible spawn area. */
 import type {Board,Piece} from './types';
 import {cells} from './geometry';
 export const emptyBoard=():Board=>Array.from({length:20},()=>Array(10).fill(null));

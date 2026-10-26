@@ -1,3 +1,4 @@
+/** Project tooling for browser env. */
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawn} from 'node:child_process';

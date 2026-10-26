@@ -1,3 +1,4 @@
+/** Native browser acceptance for preferences. */
 import {test,expect} from '@playwright/test';
 const cases=[['ghost','Ghost visibility','dynamic','show'],['hardDrop','Hard drop','on','off'],['nextPreview','Next-piece preview','on','off'],['hardDropLock','Hard-drop locking','follow','immediate'],['lockPolicy','General locking','interval','failedDown'],['hold','Hold piece','on','off']] as const;
 for(const [key,label,defaultValue,alternate] of cases)test('persists independent '+key+' URL/cookie precedence and explicit defaults',async({page,context})=>{

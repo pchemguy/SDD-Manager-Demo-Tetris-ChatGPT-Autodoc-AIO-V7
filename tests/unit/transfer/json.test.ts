@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for json. */
 import {it,expect} from 'vitest';
 import {DEFAULT_SETTINGS} from '../../../src/app/settings';
 import {validateSnapshot} from '../../../src/transfer/validate';

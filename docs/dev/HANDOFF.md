@@ -1,6 +1,6 @@
 # Project handoff
 
-Checkpoint: milestone 7.2 complete in T-026; final phase review next.
+Checkpoint: final phase acceptance and 1.0.0 package prepared in T-027; integration/release pending.
 
 ## Authority and source
 
@@ -12,4 +12,6 @@ Working phase/7-portable-saves branches from main release commit ca4946767e93c70
 
 ## Next boundary
 
-See reports/phases/7/7.2.md for interoperable JSON/SQLite transfer, independent review repairs and verification. Publish/read back T-026, reconcile issue 35 and milestone 15 before T-027. T-027 completes final whole-scope acceptance, documentation/notice/package audit, final implementation report and 1.0.0 preparation. Then integrate into main, verify/publish, tag and publish/read back release/assets. The previously authorized full implementation remains active. No scope changes or new approval is pending; no final release claim until actual publication is verified.
+See reports/phases/7/PHASE-REPORT.md and reports/IMPLEMENTATION-REPORT.md for complete acceptance and limits. All 27 tasks are locally verified; final unit suite 136/136, development 76/76 plus post-repair penetrator 6/6, production 58 passes/18 intentional fixture-only skips, actual /nested/ transfer 2/2. Final runtime bytes match the full production-tested build; 1.0.0 archive/notes are prepared. No unresolved code finding or human decision remains.
+
+Publish/read back T-027 and close issue 36/milestone 16, then integrate with an explicit two-parent merge into main, verify/publish the merged state, create the default-branch release commit and annotated v1.0.0 tag, and publish/read back GitHub body/latest/assets/download bytes. The authorization includes these effects. Do not report release completion until they are observed. No further task range is authorized beyond this completed target.

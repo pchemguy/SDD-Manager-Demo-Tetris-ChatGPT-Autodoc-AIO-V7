@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for input. */
 import {it,expect,vi,afterEach} from 'vitest';
 import {Controller} from '../../../src/app/controller';
 import {bindInput} from '../../../src/ui/input';

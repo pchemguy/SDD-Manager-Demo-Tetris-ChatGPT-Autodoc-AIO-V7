@@ -1,3 +1,4 @@
+/** Native browser acceptance for penetrator. */
 import {test,expect} from '@playwright/test';
 test('shows available penetrator bonuses in actual shipped panels',async({page})=>{await page.goto('/');await expect(page.getByTestId('bonuses')).toHaveText('—');await expect(page.getByTestId('bonuses')).toHaveAttribute('aria-label','Available penetrator bonuses: 0');await expect(page.getByText('Penetrator',{exact:true})).toBeVisible();});
 test('native activation spends once, paints white and drops below blockers without Hold',async({page})=>{

@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for settings. */
 import {it,expect} from 'vitest';
 import {startGame,applyRules,hardDrop,hold,softDrop,advance} from '../../../src/domain/game';
 it('follows failed-down policy only on a failed attempt, including gravity',()=>{

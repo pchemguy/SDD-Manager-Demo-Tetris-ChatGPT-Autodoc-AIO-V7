@@ -1,3 +1,4 @@
+/** Native browser acceptance for transfer. */
 import {test,expect} from '@playwright/test';
 import {readFile} from 'node:fs/promises';
 async function downloadJSON(page:any){const pending=page.waitForEvent('download');await page.getByRole('button',{name:'Save',exact:true}).click();const download=await pending;expect(download.suggestedFilename()).toBe('tetris-save.json');return {bytes:await readFile((await download.path())!),snapshot:JSON.parse((await readFile((await download.path())!)).toString())};}

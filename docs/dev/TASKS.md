@@ -132,7 +132,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 
 ## Phase 7 — Portable saves
 
-- [ ] Phase 7 — Portable saves
+- [x] Phase 7 — Portable saves
     - [x] Milestone 7.1 — JSON transfer
         - [x] T-022 — Implement canonical snapshot validation and strict JSON codec
             Scope: transfer/types.ts, validate.ts, json.ts, canonical SAVE-SCHEMA packaging and synthetic transfer corpus. Consume exact settings/result types; produce a validated immutable payload or located error, with duplicate-member detection before object construction.
@@ -155,7 +155,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
             Scope: existing single Save/Restore pair, header detection/files, transfer orchestration, schema/download packaging and e2e/user guide. Offer JSON/SQLite through the existing Save format choice; Restore accepts either through the same validated commit path.
             Depends on: T-024, T-025.
             Evidence: JSON→SQLite→JSON canonical equality, both native downloads/reuploads, immutable Save snapshot during play, complete invalid-file rejection, worker timeout/asset failure, cookie/history rollback and all earlier gameplay/layout regressions in both browsers. Milestone exit: review 7.2, interchangeable-format demonstration, docs/dev/reports/phases/7/7.2.md and HANDOFF.
-    - [ ] Milestone 7.3 — Phase review
-        - [ ] T-027 — Review, test and report the complete target product
+    - [x] Milestone 7.3 — Phase review
+        - [x] T-027 — Review, test and report the complete target product
             Depends on: T-023, T-026 and milestones 7.1/7.2 completion/verified closure.
             Evidence: every SPEC acceptance group, independent code review, unit/integration/native-browser matrix, malformed/corrupt/resource/persistence failure corpus, production worker/base-path assets, final docs/schema/archive and all prior regressions. Prepare 1.0.0/RELEASE-NOTES, docs/dev/reports/phases/7/PHASE-REPORT.md, final docs/dev/reports/IMPLEMENTATION-REPORT.md with all unresolved/deferred TODO provenance, and HANDOFF. Full release completion is reported only after the coordinator's verified integration/tag/GitHub publication.

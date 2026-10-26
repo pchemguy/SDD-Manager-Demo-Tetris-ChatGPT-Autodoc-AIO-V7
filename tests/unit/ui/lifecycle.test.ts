@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for lifecycle. */
 import {it,expect} from 'vitest';
 import {bindPageLifecycle} from '../../../src/ui/lifecycle';
 it('suspends a cached page and restores exactly one live loop without disposing input',()=>{

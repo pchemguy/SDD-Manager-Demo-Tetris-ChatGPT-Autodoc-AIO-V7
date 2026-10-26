@@ -1,3 +1,4 @@
+/** Accessible HTML panels, setting/file controls and result rendering; optional panels retain a fixed board anchor. */
 import type {Result} from '../app/leaderboard';
 import {DESCRIPTORS,SETTING_KEYS,DEFAULT_SETTINGS,wire,type Settings} from '../app/settings';
 import type {Game} from '../domain/types';

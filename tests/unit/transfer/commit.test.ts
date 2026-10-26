@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for commit. */
 import {it,expect} from 'vitest';
 import {Controller} from '../../../src/app/controller';
 import {DEFAULT_SETTINGS,SETTING_KEYS} from '../../../src/app/settings';
