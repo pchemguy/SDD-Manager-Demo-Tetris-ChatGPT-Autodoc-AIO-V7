@@ -1,6 +1,7 @@
+/** Native browser acceptance for settings. */
 import {test,expect} from '@playwright/test';
 test('six live controls apply without restart and keep form keys separate',async({page})=>{
- await page.goto('/');await expect(page.getByRole('combobox')).toHaveCount(6);await page.getByRole('button',{name:'Start game',exact:true}).click();await page.keyboard.press('ArrowDown');await expect(page.getByTestId('score')).toHaveText('000001');
+ await page.goto('/');await expect(page.locator('#setting-fields').getByRole('combobox')).toHaveCount(6);await page.getByRole('button',{name:'Start game',exact:true}).click();await page.keyboard.press('ArrowDown');await expect(page.getByTestId('score')).toHaveText('000001');
  await page.getByLabel('Ghost visibility',{exact:true}).focus();
  await page.getByLabel('Ghost visibility',{exact:true}).selectOption('hide');await page.getByLabel('Hard drop',{exact:true}).selectOption('off');await page.getByLabel('Next-piece preview',{exact:true}).selectOption('off');await page.getByLabel('Hard-drop locking',{exact:true}).selectOption('immediate');await page.getByLabel('General locking',{exact:true}).selectOption('failedDown');await page.getByLabel('Hold piece',{exact:true}).selectOption('off');
  expect(await page.evaluate(()=>document.activeElement?.tagName)).toBe('SELECT');
@@ -23,8 +24,9 @@ test('every setting choice is usable and reload retains selected values',async({
  await expect(page.locator('#help-hold')).toHaveText('Hold (off)');await expect(page.locator('#help-drop')).toHaveText('Hard drop (off)');await page.reload();for(const [label,values] of choices)await expect(page.getByLabel(label,{exact:true})).toHaveValue(values.at(-1)!);
 });
 test('native selected immediate and failed-down policies change locking behavior',async({page})=>{
- await page.goto('/');await page.getByLabel('Hard-drop locking',{exact:true}).selectOption('immediate');await page.getByRole('button',{name:'Start game',exact:true}).click();let next=await page.getByTestId('next-kind').textContent();await page.keyboard.press('Space');await expect(page.getByTestId('next-kind')).not.toHaveText(next!);
- await page.getByLabel('General locking',{exact:true}).focus();await page.getByLabel('General locking',{exact:true}).selectOption('failedDown');await page.getByLabel('Hard-drop locking',{exact:true}).selectOption('follow');await page.getByRole('button',{name:'Restart',exact:true}).click();next=await page.getByTestId('next-kind').textContent();await page.keyboard.press('Space');await expect(page.getByTestId('next-kind')).toHaveText(next!);await page.keyboard.press('ArrowDown');await expect(page.getByTestId('next-kind')).not.toHaveText(next!);
+ await page.addInitScript(()=>Object.defineProperty(crypto,'getRandomValues',{value:(a:Uint32Array)=>{a.fill(1);return a;}}));
+ await page.goto('/');await page.getByLabel('Hard-drop locking',{exact:true}).selectOption('immediate');await page.getByRole('button',{name:'Start game',exact:true}).click();await expect(page.getByTestId('next-kind')).not.toHaveText('—');let next=await page.getByTestId('next-kind').textContent();await page.keyboard.press('Space');await expect(page.getByTestId('next-kind')).not.toHaveText(next!);
+ await page.getByLabel('General locking',{exact:true}).focus();await page.getByLabel('General locking',{exact:true}).selectOption('failedDown');await page.getByLabel('Hard-drop locking',{exact:true}).selectOption('follow');await page.getByRole('button',{name:'Restart',exact:true}).click();await expect(page.getByTestId('score')).toHaveText('000000');next=await page.getByTestId('next-kind').textContent();await page.keyboard.press('Space');await expect(page.getByTestId('next-kind')).toHaveText(next!);await page.keyboard.press('ArrowDown');await expect(page.getByTestId('next-kind')).not.toHaveText(next!);
 });
 test('ghost controls change actual destination raster at the midline',async({page})=>{
  test.skip(process.env.TEST_PRODUCTION==='1','Controlled board fixtures are development-only.');await page.goto('/');await page.getByRole('button',{name:'Start game',exact:true}).click();await page.getByLabel('Ghost visibility',{exact:true}).focus();

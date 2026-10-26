@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for preferences. */
 import {it,expect} from 'vitest';
 import {DEFAULT_SETTINGS,SETTING_KEYS,DESCRIPTORS,wire,resolveSettings} from '../../../src/app/settings';
 it('resolves every setting independently from valid URL then cookie then default, retaining explicit defaults',()=>{

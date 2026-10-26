@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for modern source. */
 import {it,expect} from 'vitest';
 import {KINDS} from '../../../src/domain/types';
 import {nextBag,uniformIndex} from '../../../src/domain/randomizer';

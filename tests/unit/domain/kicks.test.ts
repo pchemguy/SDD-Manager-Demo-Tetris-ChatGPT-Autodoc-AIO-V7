@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for kicks. */
 import {it,expect} from 'vitest';
 import {startGame,rotate} from '../../../src/domain/game';
 import {emptyBoard,canPlace} from '../../../src/domain/placement';

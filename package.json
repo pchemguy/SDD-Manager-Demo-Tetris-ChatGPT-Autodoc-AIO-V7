@@ -1,6 +1,6 @@
 {
   "name": "browser-tetris",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -10,7 +10,7 @@
     "dev": "vite --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
     "test:unit": "vitest run",
-    "build": "tsc --noEmit && vite build",
+    "build": "tsc --noEmit && vite build && node scripts/third-party-notices.mjs",
     "preview": "vite preview --host 127.0.0.1",
     "browsers:install": "node scripts/browser-env.mjs install",
     "test:e2e": "node scripts/run-browser-tests.mjs",
@@ -19,8 +19,13 @@
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",
+    "@types/sql.js": "1.4.9",
     "typescript": "7.0.2",
     "vite": "8.3.5",
     "vitest": "5.0.5"
+  },
+  "dependencies": {
+    "ajv": "8.20.0",
+    "sql.js": "1.14.2"
   }
 }

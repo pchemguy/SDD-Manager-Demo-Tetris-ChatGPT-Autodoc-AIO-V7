@@ -1,3 +1,4 @@
+/** Native browser acceptance for modern. */
 import {test,expect} from '@playwright/test';
 test('Hold consumes next once and preserves its once-per-piece restriction',async({page})=>{
  await page.goto('/');await page.getByRole('button',{name:'Start game',exact:true}).click();

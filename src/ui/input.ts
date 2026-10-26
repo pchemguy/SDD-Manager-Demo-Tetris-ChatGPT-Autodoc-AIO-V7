@@ -1,3 +1,4 @@
+/** Focus-aware native input and active-time key repeats, ordered with simulation boundaries and cleared on lifecycle changes. */
 import type {Controller,Command} from '../app/controller';
 const MAP:Record<string,Command>={ArrowLeft:'left',ArrowRight:'right',ArrowDown:'down',ArrowUp:'cw',x:'cw',z:'ccw',p:'pause',r:'start',c:'hold',v:'penetrator',' ':'drop'};
 export function bindInput(canvas:HTMLCanvasElement,c:Controller,beforeCommand=()=>{}){
@@ -16,7 +17,7 @@ export function bindInput(canvas:HTMLCanvasElement,c:Controller,beforeCommand=()
  const up=(event:KeyboardEvent)=>{beforeCommand();const previous=winner();held.delete(event.key);const next=winner();if(next&&next!==previous)held.get(next)!.next=c.state.time+150;};
  const blur=()=>{beforeCommand();clear();c.pause();};
  const visibility=()=>{if(document.hidden)blur();};
- const focus=(e:FocusEvent)=>{if(e.target!==canvas&&e.target!==document.body)blur();};
+ const focus=(e:FocusEvent)=>{const action=(e.target as HTMLElement|null)?.dataset?.fileAction;if(e.target!==canvas&&e.target!==document.body&&action!=='save'&&action!=='cancel')blur();};
  const pointer=()=>canvas.focus();
  document.addEventListener('keydown',down);document.addEventListener('keyup',up);document.addEventListener('visibilitychange',visibility);document.addEventListener('focusin',focus);window.addEventListener('blur',blur);canvas.addEventListener('pointerdown',pointer);
  return {clear,advance(ms:number){

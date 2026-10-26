@@ -1,3 +1,4 @@
+/** Native browser acceptance for leaderboard. */
 import {test,expect} from '@playwright/test';
 test('records a native completed game once, keeps history across restart and clears on reload',async({page})=>{
  await page.goto('/?hardDropLock=immediate');await expect(page.getByRole('region',{name:'Leaderboard',exact:true})).toBeVisible();await expect(page.getByTestId('result-row')).toHaveCount(0);await page.getByRole('button',{name:'Start game',exact:true}).click();

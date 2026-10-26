@@ -1,3 +1,4 @@
+/** Native browser acceptance for gameplay. */
 import {test,expect} from '@playwright/test';
 test('plays, pauses, freezes and restarts a classic game',async({page})=>{
  await page.addInitScript(()=>Object.defineProperty(crypto,'getRandomValues',{value:(a:Uint32Array)=>{a.fill(1);return a;}}));

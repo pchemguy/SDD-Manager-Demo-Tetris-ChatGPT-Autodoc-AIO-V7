@@ -1,3 +1,4 @@
+/** Pure tetromino cell geometry, pivot rotation and translation into board coordinates. */
 import type {Kind,Point,Piece,Rotation} from './types';
 const INITIAL:Record<Kind,[number,number][]>={
  I:[[0,1],[1,1],[2,1],[3,1]],J:[[0,0],[0,1],[1,1],[2,1]],L:[[2,0],[0,1],[1,1],[2,1]],O:[[1,0],[2,0],[1,1],[2,1]],S:[[1,0],[2,0],[0,1],[1,1]],T:[[1,0],[0,1],[1,1],[2,1]],Z:[[0,0],[1,0],[1,1],[2,1]]

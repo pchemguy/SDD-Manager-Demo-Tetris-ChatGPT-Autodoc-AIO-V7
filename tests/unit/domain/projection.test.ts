@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for projection. */
 import {it,expect} from 'vitest';
 import {startGame,hardDrop} from '../../../src/domain/game';
 import {landing,ghostVisible} from '../../../src/domain/projection';

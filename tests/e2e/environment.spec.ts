@@ -1,3 +1,4 @@
+/** Native browser acceptance for environment. */
 import {test,expect} from '@playwright/test';
 test('two isolated contexts render playable Canvas and native buttons',async({browser})=>{
  for(let i=0;i<2;i++){

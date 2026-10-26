@@ -132,30 +132,30 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
 
 ## Phase 7 — Portable saves
 
-- [ ] Phase 7 — Portable saves
-    - [ ] Milestone 7.1 — JSON transfer
-        - [ ] T-022 — Implement canonical snapshot validation and strict JSON codec
+- [x] Phase 7 — Portable saves
+    - [x] Milestone 7.1 — JSON transfer
+        - [x] T-022 — Implement canonical snapshot validation and strict JSON codec
             Scope: transfer/types.ts, validate.ts, json.ts, canonical SAVE-SCHEMA packaging and synthetic transfer corpus. Consume exact settings/result types; produce a validated immutable payload or located error, with duplicate-member detection before object construction.
             Depends on: T-021 and verified phase-6 integration/release.
             Evidence: valid empty/top-ten/default payloads and schema equivalence; unknown/missing/duplicate properties or IDs, unsafe/fractional/negative numbers, bad UUID/calendar/offset, version and size/UTF-8/BOM cases. A bad final result rejects the whole file; no application mutation occurs in codecs.
-        - [ ] T-023 — Deliver manual JSON Save and atomic Restore
+        - [x] T-023 — Deliver manual JSON Save and atomic Restore
             Scope: platform/files.ts, app settings/results commit coordination, panels/controller and native download/upload tests/docs. Add exactly one bottom-of-settings Save/Restore pair, snapshot capture, pause-before-picker, serialized operation/cancellation/error handling and complete persistence/state commit after T-022 validation.
             Depends on: T-022.
             Evidence: native JSON download/reupload, replacement including empty history, all six cookies/query defaults, preserved active board/score, explicit resume, hiding settings hides both buttons, blocked start during commit, unchanged data on every invalid/cancel/failure case and no resource leaks in both browsers. Milestone exit: review 7.1, JSON demonstration, docs/dev/reports/phases/7/7.1.md and HANDOFF.
-    - [ ] Milestone 7.2 — SQLite transfer
-        - [ ] T-024 — Package isolated SQLite worker and runtime assets
+    - [x] Milestone 7.2 — SQLite transfer
+        - [x] T-024 — Package isolated SQLite worker and runtime assets
             Scope: pinned SQLite dependency/lockfile, transfer/sqlite-host.ts and sqlite.worker.ts, Vite asset routing and production browser checks. Provide operation IDs, finite 10-second lifecycle, runtime initialization and disposal without application-state access.
             Depends on: T-023 and milestone 7.1 completion/verified closure.
             Evidence: actual packaged module-worker/WASM load under root and non-root production bases in both browsers; trusted empty-database operation, stale reply, timeout, startup error and cleanup. Do not expose a working SQLite format choice until T-026 integration.
-        - [ ] T-025 — Implement versioned SQLite schema and fixed-query codec
+        - [x] T-025 — Implement versioned SQLite schema and fixed-query codec
             Scope: transfer/sqlite.ts and worker command integration with corruption/schema/type fixtures. Consume T-022 canonical validator and T-024 worker; produce parameterized export and staged canonical decode with required metadata, integrity and allowlisted ordinary tables.
             Depends on: T-024.
             Evidence: zero/ten results and six unique settings; stable IDs/score/time; exact storage classes/column structure/metadata; corrupt/spoofed/truncated files, views/triggers/virtual tables/custom indexes, bad rows/keys and safe-integer boundaries. Imported SQL or schema code is never executed by an application command.
-        - [ ] T-026 — Integrate format choice and cross-format file acceptance
+        - [x] T-026 — Integrate format choice and cross-format file acceptance
             Scope: existing single Save/Restore pair, header detection/files, transfer orchestration, schema/download packaging and e2e/user guide. Offer JSON/SQLite through the existing Save format choice; Restore accepts either through the same validated commit path.
             Depends on: T-024, T-025.
             Evidence: JSON→SQLite→JSON canonical equality, both native downloads/reuploads, immutable Save snapshot during play, complete invalid-file rejection, worker timeout/asset failure, cookie/history rollback and all earlier gameplay/layout regressions in both browsers. Milestone exit: review 7.2, interchangeable-format demonstration, docs/dev/reports/phases/7/7.2.md and HANDOFF.
-    - [ ] Milestone 7.3 — Phase review
-        - [ ] T-027 — Review, test and report the complete target product
+    - [x] Milestone 7.3 — Phase review
+        - [x] T-027 — Review, test and report the complete target product
             Depends on: T-023, T-026 and milestones 7.1/7.2 completion/verified closure.
             Evidence: every SPEC acceptance group, independent code review, unit/integration/native-browser matrix, malformed/corrupt/resource/persistence failure corpus, production worker/base-path assets, final docs/schema/archive and all prior regressions. Prepare 1.0.0/RELEASE-NOTES, docs/dev/reports/phases/7/PHASE-REPORT.md, final docs/dev/reports/IMPLEMENTATION-REPORT.md with all unresolved/deferred TODO provenance, and HANDOFF. Full release completion is reported only after the coordinator's verified integration/tag/GitHub publication.

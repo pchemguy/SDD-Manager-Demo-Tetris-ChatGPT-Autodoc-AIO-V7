@@ -33,3 +33,17 @@ Gravity/contact advancement uses explicit active time, with contact expiry befor
 ## Preference verification
 
 Unit tests inject failures before and after each managed cookie/history write, including silent refusal and denied rollback. Browser tests cover all six keys, explicit defaults, omitted/invalid/duplicate parameters, URL preservation, cookie attributes and actual profile close/reopen. Persistent profiles are created only under each test’s owned output directory and removed after managed contexts close. Firefox uses the same diagnosed process-local override for these test-owned launches. No personal profile is opened.
+
+## Portable validation
+
+The canonical Draft 2020-12 file is docs/dev/spec/SAVE-SCHEMA.json. Vite emits its bytes as tetris-save.schema.json; package validation compares them and requires one unique archive entry. Ajv 8.20.0 uses its 2020 class with explicit canonical date-time validation. The codec scans decoded member names before constructing ordinary JSON objects, then validates the complete shape, domains, real UTC calendar, numeric bounds and unique IDs before returning a normalized copy. JSON is limited to 1 MiB and requires UTF-8 (optional leading BOM). The JSON file UI stages complete validation before the shared settings/results commit. Numeric token checks use exact decimal digit/scale arithmetic before floating-point parsing, preventing fractional roundoff/underflow acceptance. Native tests cover download/reupload, cancellation, paused Canvas preservation and invalid-file/persistence rollback.
+
+## SQLite runtime acceptance
+
+sql.js 1.14.2 and its local WASM asset are exact-pinned. `npx vite build --config vite.runtime.config.ts` builds a separate acceptance entry without shipping the test harness in the game. Run `TEST_RUNTIME=1 npm run test:e2e -- tests/e2e/sqlite-runtime.spec.ts` against it. To verify a subdirectory deployment, set `APP_BASE=/nested/` during both build and preview/test, and `TEST_BASE=/nested/` for the test URL. The worker deadline includes initialization; each success, failure, cancellation or timeout terminates its own worker. The normal product exposes JSON and SQLite through its single format choice and Save/Restore pair. Native tests verify actual product worker/WASM assets at root and subdirectory bases. Vite eagerly optimizes worker dependencies to avoid a first-use development reload.
+
+SQLite imports check fixed metadata/schema queries, ordinary table columns/primary indexes, storage classes, integrity, and the canonical snapshot validator. Export binds all row values. `trusted_schema=OFF`, `ignore_check_constraints=ON` and `query_only=ON` precede inspection: imported CHECK expressions are not executed by integrity validation. Unknown objects, generated/virtual tables, views/triggers/custom indexes, unsupported metadata and bad rows reject the complete candidate. Databases close in `finally`; the host then terminates the worker.
+
+## Release verification
+
+`npm run build` emits same-origin application/worker/WASM/schema assets and THIRD-PARTY-NOTICES.md with the exact installed production-dependency licenses. `npm run package:release` creates artifacts/releases/tetris.zip and its SHA-256 companion, including VERSION and both guides. The separate SQLite acceptance entry is not packaged. Rebuild with APP_BASE for a non-root deployment; use that same base when previewing it. Linux headless checks do not claim native Windows or OS-window-focus verification, and local passing suites do not by themselves claim a remote CI result.

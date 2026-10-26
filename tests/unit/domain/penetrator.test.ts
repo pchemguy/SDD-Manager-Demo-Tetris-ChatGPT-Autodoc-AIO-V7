@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for penetrator. */
 import {it,expect} from 'vitest';
 import {startGame,activate,move,hold,hardDrop,lock,rotate,advance} from '../../../src/domain/game';
 import {cells} from '../../../src/domain/geometry';

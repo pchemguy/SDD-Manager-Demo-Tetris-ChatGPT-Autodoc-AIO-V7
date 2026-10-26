@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for input. */
 import {it,expect,vi,afterEach} from 'vitest';
 import {Controller} from '../../../src/app/controller';
 import {bindInput} from '../../../src/ui/input';
@@ -34,4 +35,7 @@ it('discards native piece commands if flushing time expires their target piece',
   const {c,input,key}=setup(c=>c.tick(100));c.state={...c.state,active:{kind:'O',rotation:0,x:3,y:18},time:900,gravityAt:1000,lockAt:1000};const serial=c.state.pieceSerial;
   key('keydown',keyName);expect({serial:c.state.pieceSerial-serial,x:c.state.active?.x,rotation:c.state.active?.rotation,y:c.state.active?.y,score:c.state.score}).toEqual({serial:1,x:3,rotation:0,y:-1,score:0});input.dispose();
  }
+});
+it('keeps Save and cancellation focus from pausing an active game',()=>{
+ const {c,input}=setup();for(const action of ['save','cancel']){const event=new Event('focusin');Object.defineProperty(event,'target',{value:{dataset:{fileAction:action}}});document.dispatchEvent(event);expect(c.state.status).toBe('running');}input.dispose();
 });

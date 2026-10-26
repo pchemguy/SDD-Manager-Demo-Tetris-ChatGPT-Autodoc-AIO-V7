@@ -1,3 +1,4 @@
+/** Ordered SRS kick candidates for I and JLSTZ pieces; coordinates use the board downward-positive axis. */
 import type {Kind,Rotation} from './types';
 type Offset=[number,number];
 const JL:Record<string,Offset[]>={

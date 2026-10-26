@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for settings transaction. */
 import {it,expect} from 'vitest';
 import {SettingsTransaction} from '../../../src/app/settings-transaction';
 import {DEFAULT_SETTINGS,SETTING_KEYS,wire} from '../../../src/app/settings';

@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for lifecycle. */
 import {describe,it,expect} from 'vitest';
 import type {Game} from '../../../src/domain/types';
 import {startGame,advance,softDrop,lock,togglePause,move} from '../../../src/domain/game';

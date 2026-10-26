@@ -1,3 +1,4 @@
+/** Native browser acceptance for preferences. */
 import {test,expect} from '@playwright/test';
 const cases=[['ghost','Ghost visibility','dynamic','show'],['hardDrop','Hard drop','on','off'],['nextPreview','Next-piece preview','on','off'],['hardDropLock','Hard-drop locking','follow','immediate'],['lockPolicy','General locking','interval','failedDown'],['hold','Hold piece','on','off']] as const;
 for(const [key,label,defaultValue,alternate] of cases)test('persists independent '+key+' URL/cookie precedence and explicit defaults',async({page,context})=>{
@@ -23,6 +24,6 @@ test('saved cookie survives closing and reopening an isolated persistent browser
 });
 test('incomplete rollback leaves a clear error and disables all further preference writes',async({page})=>{
  await page.goto('/?u=kept#fragment');await page.evaluate(()=>{let count=0;const original=history.replaceState.bind(history);history.replaceState=(state,title,url)=>{count++;(window as any).__historyWrites=count;if(count===1)original(state,title,url);throw new DOMException('recovery denied','SecurityError');};});
- await page.getByLabel('Hold piece',{exact:true}).selectOption('off');await expect(page.locator('#message')).toContainText('recovery is incomplete');for(const field of await page.getByRole('combobox').all())await expect(field).toBeDisabled();await expect(page.getByLabel('Hold piece',{exact:true})).toHaveValue('on');const writes=await page.evaluate(()=>(window as any).__historyWrites);
+ await page.getByLabel('Hold piece',{exact:true}).selectOption('off');await expect(page.locator('#message')).toContainText('recovery is incomplete');for(const field of await page.locator('#setting-fields').getByRole('combobox').all())await expect(field).toBeDisabled();await expect(page.getByLabel('Hold piece',{exact:true})).toHaveValue('on');const writes=await page.evaluate(()=>(window as any).__historyWrites);
  await page.getByLabel('Hold piece',{exact:true}).dispatchEvent('change');await expect(page.locator('#message')).toContainText('recovery is incomplete');expect(await page.evaluate(()=>(window as any).__historyWrites)).toBe(writes);
 });

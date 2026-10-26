@@ -1,3 +1,4 @@
+/** Deterministic contract regressions for movement. */
 import {describe,it,expect} from 'vitest';
 import {KINDS} from '../../../src/domain/types';
 import {shape,cells,piece} from '../../../src/domain/geometry';

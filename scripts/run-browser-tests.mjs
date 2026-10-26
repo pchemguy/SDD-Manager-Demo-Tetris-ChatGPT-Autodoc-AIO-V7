@@ -1,3 +1,4 @@
+/** Project tooling for run browser tests. */
 import {runOwned,browserPath} from './browser-env.mjs';
 const production=process.argv.includes('--production');
 console.log('Browser mode: headless; dedicated path:',browserPath);

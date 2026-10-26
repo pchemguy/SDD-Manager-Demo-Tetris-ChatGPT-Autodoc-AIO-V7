@@ -1,3 +1,4 @@
+/** Owns pagehide/pageshow listeners, preserving one animation loop across back-forward-cache restoration. */
 type Hooks={pause:()=>void;clear:()=>void;suspend:()=>void;resume:()=>void;dispose:()=>void};
 export function bindPageLifecycle(target:EventTarget,hooks:Hooks){
  let suspended=false;

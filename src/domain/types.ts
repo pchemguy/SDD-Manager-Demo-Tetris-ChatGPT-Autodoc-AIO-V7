@@ -1,3 +1,4 @@
+/** Canonical board, piece, lifecycle and rule contracts shared by deterministic game consumers. */
 export const KINDS=['I','J','L','O','S','T','Z'] as const;
 export type Kind=typeof KINDS[number];
 export type Rotation=0|1|2|3;
