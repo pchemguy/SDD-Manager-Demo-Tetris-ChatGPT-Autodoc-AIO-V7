@@ -2,9 +2,9 @@
 
 ## Delivered scope
 
-All 27 accepted tasks implement the browser Tetris target across seven phases: classic baseline (0.1.0), modern mechanics (0.2.0), penetrator gameplay (0.3.0), session settings (0.4.0), URL/cookie persistence (0.5.0), session leaderboard (0.6.0), and JSON/SQLite portable saves (1.0.0 candidate).
+All 27 accepted tasks implement the browser Tetris target across seven phases: classic baseline (0.1.0), modern mechanics (0.2.0), penetrator gameplay (0.3.0), session settings (0.4.0), URL/cookie persistence (0.5.0), session leaderboard (0.6.0), and JSON/SQLite portable saves (1.0.0).
 
-The final [phase report](phases/7/PHASE-REPORT.md) maps every SPEC acceptance condition to domain, integration, native browser and package evidence. Prior phases remain in their original reports; their publication outcomes are historical evidence rather than inferred from task checkboxes. Final integration/release is pending until actual coordinator readback.
+The final [phase report](phases/7/PHASE-REPORT.md) maps every SPEC acceptance condition to domain, integration, native browser and package evidence. Prior phases remain in their original reports; their publication outcomes are historical evidence rather than inferred from task checkboxes. Final integration and release publication are now verified; see the release outcome below.
 
 ## Validation
 
@@ -21,3 +21,7 @@ The top-ten history is session-only unless manually exported/restored. Settings 
 ## Workflow boundary
 
 Each task's verified result/evidence and initial completion checkoff closes in its own published commit. Final task/milestone closure, main integration, default-branch release commit/tag, GitHub notes/assets/latest and downloaded-byte verification remain separately observed effects. The final HANDOFF records their actual continuation boundary.
+
+## Verified release outcome
+
+Final source 2df04226c5848e66b0d526e411dd18e6c988e0d4 was integrated with explicit two-parent merge 61019cef14d1063a76e61249e205feca7113cbe3. Merged unit/build/package and four native gameplay/transfer checks pass. Release commit ce08d6c09899058dfc2397af0e8c7cc1d0ba5a6a and annotated v1.0.0 tag were published/read back with exact note bytes. [GitHub release 1.0.0](https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Autodoc-AIO-V7/releases/tag/v1.0.0) is stable/latest; both uploaded asset sizes/digests and downloaded bytes match the prepared ZIP/checksum. The ZIP SHA-256 is a51d8de7e0cb52841142b8092678a333fb705029845bcde0e2e7a633b068ea50. All task issues and phase milestones are closed. No further implementation work remains within the authorized target.
