@@ -142,7 +142,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
             Scope: platform/files.ts, app settings/results commit coordination, panels/controller and native download/upload tests/docs. Add exactly one bottom-of-settings Save/Restore pair, snapshot capture, pause-before-picker, serialized operation/cancellation/error handling and complete persistence/state commit after T-022 validation.
             Depends on: T-022.
             Evidence: native JSON download/reupload, replacement including empty history, all six cookies/query defaults, preserved active board/score, explicit resume, hiding settings hides both buttons, blocked start during commit, unchanged data on every invalid/cancel/failure case and no resource leaks in both browsers. Milestone exit: review 7.1, JSON demonstration, docs/dev/reports/phases/7/7.1.md and HANDOFF.
-    - [ ] Milestone 7.2 — SQLite transfer
+    - [x] Milestone 7.2 — SQLite transfer
         - [x] T-024 — Package isolated SQLite worker and runtime assets
             Scope: pinned SQLite dependency/lockfile, transfer/sqlite-host.ts and sqlite.worker.ts, Vite asset routing and production browser checks. Provide operation IDs, finite 10-second lifecycle, runtime initialization and disposal without application-state access.
             Depends on: T-023 and milestone 7.1 completion/verified closure.
@@ -151,7 +151,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
             Scope: transfer/sqlite.ts and worker command integration with corruption/schema/type fixtures. Consume T-022 canonical validator and T-024 worker; produce parameterized export and staged canonical decode with required metadata, integrity and allowlisted ordinary tables.
             Depends on: T-024.
             Evidence: zero/ten results and six unique settings; stable IDs/score/time; exact storage classes/column structure/metadata; corrupt/spoofed/truncated files, views/triggers/virtual tables/custom indexes, bad rows/keys and safe-integer boundaries. Imported SQL or schema code is never executed by an application command.
-        - [ ] T-026 — Integrate format choice and cross-format file acceptance
+        - [x] T-026 — Integrate format choice and cross-format file acceptance
             Scope: existing single Save/Restore pair, header detection/files, transfer orchestration, schema/download packaging and e2e/user guide. Offer JSON/SQLite through the existing Save format choice; Restore accepts either through the same validated commit path.
             Depends on: T-024, T-025.
             Evidence: JSON→SQLite→JSON canonical equality, both native downloads/reuploads, immutable Save snapshot during play, complete invalid-file rejection, worker timeout/asset failure, cookie/history rollback and all earlier gameplay/layout regressions in both browsers. Milestone exit: review 7.2, interchangeable-format demonstration, docs/dev/reports/phases/7/7.2.md and HANDOFF.

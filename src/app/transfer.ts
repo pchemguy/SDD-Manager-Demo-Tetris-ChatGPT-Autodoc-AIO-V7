@@ -1,11 +1,9 @@
 /** Serialized file operations stage complete snapshots, discard canceled work and commit through the store. */
 import {TransferError,type Snapshot} from '../transfer/types';
 import {validateSnapshot} from '../transfer/validate';
-import {encodeJSON,decodeJSON} from '../transfer/json';
 import {readSelected,type Files,type FileFormat} from '../platform/files';
 export type TransferStore={snapshot():Snapshot;pause():void;commit(snapshot:Snapshot):void;busy(kind:'save'|'restore'|null):void};
 export type Codecs={encode(snapshot:Snapshot,format:FileFormat,signal:AbortSignal):Promise<Uint8Array>;decode(bytes:Uint8Array,format:FileFormat,signal:AbortSignal):Promise<Snapshot>};
-export const jsonCodecs:Codecs={encode:async(snapshot,format)=>{if(format!=='json')throw new TransferError('SQLite format is not available in this increment.');return encodeJSON(snapshot);},decode:async(bytes,format)=>{if(format!=='json')throw new TransferError('SQLite format is not available in this increment.');return decodeJSON(bytes);}};
 type Operation={kind:'save'|'restore';abort:AbortController};
 export class TransferManager{
  private active:Operation|undefined;

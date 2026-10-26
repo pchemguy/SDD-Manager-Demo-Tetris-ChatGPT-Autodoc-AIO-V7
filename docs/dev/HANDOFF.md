@@ -1,6 +1,6 @@
 # Project handoff
 
-Checkpoint: milestone 7.1 JSON local acceptance complete in T-023; SQLite runtime next.
+Checkpoint: milestone 7.2 complete in T-026; final phase review next.
 
 ## Authority and source
 
@@ -12,4 +12,4 @@ Working phase/7-portable-saves branches from main release commit ca4946767e93c70
 
 ## Next boundary
 
-See reports/phases/7/7.1.md for completed JSON transfer and repaired numeric/layout findings. Publish/close T-023 and milestone 14 before T-024 worker/runtime. T-025 SQLite codec and T-026 cross-format UI/acceptance complete 7.2; T-027 performs final whole-scope review, final implementation report, 1.0.0 notes/package. Then integrate, verify/publish main and create/publish/read back final release/tag/assets. Each task requires atomic result/evidence/checkbox and exact-ref publication/closure before dependencies. No partial final completion claim.
+See reports/phases/7/7.2.md for interoperable JSON/SQLite transfer, independent review repairs and verification. Publish/read back T-026, reconcile issue 35 and milestone 15 before T-027. T-027 completes final whole-scope acceptance, documentation/notice/package audit, final implementation report and 1.0.0 preparation. Then integrate into main, verify/publish, tag and publish/read back release/assets. The previously authorized full implementation remains active. No scope changes or new approval is pending; no final release claim until actual publication is verified.

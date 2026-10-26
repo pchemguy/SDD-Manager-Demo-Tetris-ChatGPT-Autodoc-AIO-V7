@@ -1,4 +1,5 @@
-import {TransferManager,jsonCodecs} from './app/transfer';
+import {TransferManager} from './app/transfer';
+import {portableCodecs} from './transfer/codecs';
 import {browserFiles,type FileFormat} from './platform/files';
 import './ui/styles.css';
 import {browserPreferences} from './platform/preferences';
@@ -16,7 +17,7 @@ function renderMessage(){document.querySelector('#message')!.textContent=[...new
 try{preferenceMessage=controller.initializePreferences(browserPreferences()).join(' ');}catch{preferenceMessage='Saved settings could not be loaded; using session defaults.';}renderMessage();
 function advanceTo(now:number){const current=Math.max(now,previous),ms=current-previous;previous=current;input.advance(ms);}
 const input=bindInput(ui.canvas,controller,()=>advanceTo(monotonic()));
-const transfers=new TransferManager({snapshot:()=>controller.snapshot(),pause:()=>{advanceTo(monotonic());controller.pause();input.clear();},commit:s=>{controller.restoreSnapshot(s);preferenceMessage='';},busy:kind=>{controller.fileOperation=kind;}},browserFiles(ui.file),jsonCodecs,message=>{if(controller.persistenceBlocked&&message.includes('recovery is incomplete'))preferenceMessage=message;fileMessage=message;renderMessage();});
+const transfers=new TransferManager({snapshot:()=>controller.snapshot(),pause:()=>{advanceTo(monotonic());controller.pause();input.clear();},commit:s=>{controller.restoreSnapshot(s);preferenceMessage='';},busy:kind=>{controller.fileOperation=kind;}},browserFiles(ui.file),portableCodecs,message=>{if(controller.persistenceBlocked&&message.includes('recovery is incomplete'))preferenceMessage=message;fileMessage=message;renderMessage();});
 ui.save.addEventListener('click',()=>{advanceTo(monotonic());ui.canvas.focus();void transfers.save(ui.format.value as FileFormat);});
 ui.restore.addEventListener('click',()=>{void transfers.restore();});
 ui.cancel.addEventListener('click',()=>{transfers.cancel();ui.canvas.focus();});

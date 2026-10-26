@@ -6,7 +6,7 @@ Serve the extracted static release over HTTP(S), or use the development commands
 
 Complete horizontal rows to clear them. One/two/three/four rows award 100/300/500/800 times the level before clearing. Soft drop awards one point per cell. Every ten cleared lines raises the level and increases gravity. By default, a grounded piece waits one full gravity interval before locking; grounded moves do not extend that time, but becoming airborne starts a fresh interval on recontact.
 
-Moving focus away or hiding the tab pauses play; resume explicitly. Long frame gaps also pause instead of catching up unexpectedly. Restart abandons an unfinished game. The game uses seven-bag randomization. Press C to Hold once per active piece; the next piece and held kind are shown beside the board. Swapping restores the incoming piece to its spawn orientation. Manual JSON backup/restore is available; SQLite is the remaining transfer increment.
+Moving focus away or hiding the tab pauses play; resume explicitly. Long frame gaps also pause instead of catching up unexpectedly. Restart abandons an unfinished game. The game uses seven-bag randomization. Press C to Hold once per active piece; the next piece and held kind are shown beside the board. Swapping restores the incoming piece to its spawn orientation. Manual JSON and SQLite backup/restore is available.
 
 At widths below 1280 CSS pixels the minimum-width game surface scrolls; the board stays centered in that surface. At supported desktop widths it stays centered in the viewport.
 
@@ -48,10 +48,10 @@ The left panel lists the ten best completed games by score, with UTC completion 
 
 The full list scrolls inside its panel so it does not overlap the game or footer. Use the leaderboard toggle above Pause to hide it; the board and game information remain visible.
 
-## Manual JSON Save and Restore
+## Manual Save and Restore
 
-Save and Restore sit at the bottom of Settings and hide with that panel. Save downloads tetris-save.json containing the current top ten and all six settings, including defaults. It captures once and does not pause play; the active board/score, held piece, bonuses and panel visibility are excluded.
+Save and Restore sit at the bottom of Settings and hide with that panel. Choose JSON or SQLite in Save format. Save downloads tetris-save.json or tetris-save.sqlite containing the current top ten and all six settings, including defaults. It captures once and does not pause play; the active board/score, held piece, bonuses and panel visibility are excluded.
 
-Restore pauses a running game before opening the picker and leaves it paused after success, rejection or cancellation. Choose one UTF-8 JSON file (optional BOM), at most 1 MiB. File extensions are hints; content is validated. Use Resume explicitly afterward. Idle/game-over states remain unchanged. While processing, Save/Restore and conflicting controls are disabled; Cancel discards pending work.
+Restore pauses a running game before opening the picker and leaves it paused after success, rejection or cancellation. Choose one UTF-8 JSON file (optional BOM), at most 1 MiB, or one SQLite file, at most 5 MiB. File extensions are hints; content is validated. Use Resume explicitly afterward. Idle/game-over states remain unchanged. While processing, Save/Restore and conflicting controls are disabled; Cancel discards pending work.
 
-The whole file must pass version, schema, setting, ID, exact integer and real UTC calendar checks before any results, settings, cookies or URL change. Restore replaces history (including an empty list), applies all six settings and writes their cookies/query values, preserving active gameplay. Failure leaves effective data unchanged; persistence denial uses the recovery behavior described above. The included tetris-save.schema.json documents JSON version 1. SQLite support follows in this final phase.
+The whole file must pass version, schema, setting, ID, exact integer and real UTC calendar checks before any results, settings, cookies or URL change. Restore replaces history (including an empty list), applies all six settings and writes their cookies/query values, preserving active gameplay. Failure leaves effective data unchanged; persistence denial uses the recovery behavior described above. The included tetris-save.schema.json documents JSON version 1. SQLite version 1 contains high_scores(id, score, timestamp) and settings(key, value), with version metadata. Its worker/runtime and WASM are packaged locally. A ten-second deadline includes initialization; errors and cancellation discard staged data. Both formats preserve the same canonical values.
