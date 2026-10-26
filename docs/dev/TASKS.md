@@ -143,7 +143,7 @@ After a complete phase, the coordinator integrates/verifies/publishes default, c
             Depends on: T-022.
             Evidence: native JSON download/reupload, replacement including empty history, all six cookies/query defaults, preserved active board/score, explicit resume, hiding settings hides both buttons, blocked start during commit, unchanged data on every invalid/cancel/failure case and no resource leaks in both browsers. Milestone exit: review 7.1, JSON demonstration, docs/dev/reports/phases/7/7.1.md and HANDOFF.
     - [ ] Milestone 7.2 — SQLite transfer
-        - [ ] T-024 — Package isolated SQLite worker and runtime assets
+        - [x] T-024 — Package isolated SQLite worker and runtime assets
             Scope: pinned SQLite dependency/lockfile, transfer/sqlite-host.ts and sqlite.worker.ts, Vite asset routing and production browser checks. Provide operation IDs, finite 10-second lifecycle, runtime initialization and disposal without application-state access.
             Depends on: T-023 and milestone 7.1 completion/verified closure.
             Evidence: actual packaged module-worker/WASM load under root and non-root production bases in both browsers; trusted empty-database operation, stale reply, timeout, startup error and cleanup. Do not expose a working SQLite format choice until T-026 integration.
